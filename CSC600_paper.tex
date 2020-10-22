@@ -1,0 +1,86 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{balance}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage[mathscr]{euscript}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{wrapfig}
+\usepackage{cite}
+\usepackage{float}
+\usepackage[flushleft]{threeparttable}
+\usepackage{pifont}
+\usepackage{scrextend}
+\usepackage{soul}
+\usepackage{color} 
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\usepackage{lettrine}
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Document Refactorings}
+
+\author{
+\IEEEauthorblockN{Soumya Mudiyappa}
+\IEEEauthorblockA{\textit{West Chester University}\\fs926226@wcupa.edu}
+\and
+\IEEEauthorblockN{Swetchha Shukla}
+\IEEEauthorblockA{\textit{West Chester University}\\ss928947@wcupa.edu}
+\and
+\IEEEauthorblockN{Yung-Chen Cheng}
+\IEEEauthorblockA{\textit{West Chester University}\\yc917559@wcupa.edu}
+}
+
+\maketitle
+
+\section{\textbf{Introduction}}
+\lettrine{R}{efactoring} is a controlled technique for improving the design of an existing code base. Its essence is applying a series of small behavior-preserving transformations, each of which "too small to be worth doing". However the cumulative effect of each of these transformations is quite significant. By doing them in small steps we reduce the risk of introducing errors. We also avoid having the system broken while carrying out the restructuring - which allows us to gradually refactor a system over an extended period of time.~\cite{Fowler}
+
+In simple words, refactoring is a \emph{behavior preserving} code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - \emph{precondition checks and code changes}.
+
+The idea behind refactoring were introduced over decades ago, but scripting of refactorings is poorly suppported by current IDEs tools. Today's IDEs lack fine-grained primitive refactorings including restrictive/imprecise preconditions and inconsistent code transformations. 
+There are further more challenges for executing refactoring as it is error-prone, time-consuming and laborious work. Scripting refactoring with current IDEs are too slow because precondition checks and AST operation takes largest time which makes scripting refactorings impractical.
+Therefore, we need tools that automate refactorings scripts with precise preconditions, high speed and reliability and which we may reuse frequently.
+
+\section{\textbf{Rename Refactorings}}
+Rename refactoring is a feature that provides an easy way to change the name of identifiers for code symbols without changing its behavior and functionality. Rename can be used to change the names in comments and in strings and to change the declarations and calls of an identifier.
+There are five types of Rename Refactoring: 
+\begin{enumerate}
+	\item Rename Class Declarations 
+	\item Rename Method Declarations  
+	\item Rename Field Declarations  
+	\item Rename Local Variables  
+	\item Rename Package Declarations
+\end{enumerate}
+
+\section{\textbf{Preconditions of Rename Class Refactoring}}
+Rename Class Declarations is a refactoring feature that changes the name of the class and all references to that class to the new name without changing its behavior and functionality. There are certain preconditions required for Rename Class Refactoring. 
+\begin{enumerate}
+	\item The target class cannot be duplicate with an existing class within same package after rename.
+	\item The target class cannot be duplicate with any imported class from another package.
+	\item The target sub-class cannot be duplicate with any imported class into its parent class from another package. 
+\end{enumerate}
+
+\input{Precon1}\label{sec:precon1}
+	
+\input{Precon2}\label{sec:precon2}
+
+\input{Precon3}
+
+
+\section{\textbf{Code Change Rules}}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+\end{document}
