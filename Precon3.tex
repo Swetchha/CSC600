@@ -1,4 +1,4 @@
-\subsection{The target sub-class cannot be duplicate with any imported class into its parent class from another package.}
+\subsection{If a parent class imports a class from different package, the target child class cannot be duplicate with that imported class after rename.}
 
 If we try renaming a subclass with the same name as the class imported into its parent class from another package, compiler produces the error as `a compilation unit must not import and declare a type with the same name'~\cite{EclipseWebPage}. 
 To rename a class or subclass for refactoring the code, some of the necessary preconditions have to be checked. This precondition can be explained by the following example.
