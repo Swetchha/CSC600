@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  23 OCT 2020 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  23 OCT 2020 15:45
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -567,16 +567,25 @@ File: SCN.jpg Graphic file (type jpg)
 Package pdftex.def Info: SCN.jpg  used on input line 40.
 (pdftex.def)             Requested size: 125.86993pt x 65.34395pt.
 ) (Precon2.tex
-<CUE.jpg, id=38, 774.64406pt x 316.93407pt>
+<CUE.jpg, id=40, 532.23843pt x 208.52907pt>
 File: CUE.jpg Graphic file (type jpg)
 <use CUE.jpg>
-Package pdftex.def Info: CUE.jpg  used on input line 110.
-(pdftex.def)             Requested size: 387.32108pt x 158.46664pt.
+Package pdftex.def Info: CUE.jpg  used on input line 42.
+(pdftex.def)             Requested size: 266.11856pt x 104.26427pt.
+
+Underfull \vbox (badness 1546) has occurred while \output is active []
+
  [1{C:/Users/swetchha/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 
- <./SCN.jpg> <./CUE.jpg>]) (Precon3.tex
-<precond3.png, id=80, 396.48125pt x 306.14375pt>
+ <./SCN.jpg>]
+<CNF.jpg, id=94, 303.38344pt x 109.1578pt>
+File: CNF.jpg Graphic file (type jpg)
+<use CNF.jpg>
+Package pdftex.def Info: CNF.jpg  used on input line 48.
+(pdftex.def)             Requested size: 151.69135pt x 54.57877pt.
+) (Precon3.tex
+<precond3.png, id=99, 396.48125pt x 306.14375pt>
 File: precond3.png Graphic file (type png)
 <use precond3.png>
 Package pdftex.def Info: precond3.png  used on input line 38.
@@ -604,27 +613,28 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
-[2]
+[2 <./CUE.jpg> <./CNF.jpg> <./precond3.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
- [3
-
- <./precond3.png>] (CSC600_paper.aux)
+ (CSC600_paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
-Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 9E104BAFA386A80E819D0E53C4CF248C;705.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `CSC600_paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
+Package rerunfilecheck Info: Checksums for `CSC600_paper.out':
+(rerunfilecheck)             Before: 9E104BAFA386A80E819D0E53C4CF248C;705
+(rerunfilecheck)             After:  B0B823AED59114615E00C142DA86F854;727.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 11634 strings out of 480790
- 178187 string characters out of 2895894
- 711857 words of memory out of 3000000
- 27293 multiletter control sequences out of 15000+200000
- 572965 words of font info for 101 fonts, out of 3000000 for 9000
+ 11580 strings out of 480790
+ 177427 string characters out of 2895894
+ 671862 words of memory out of 3000000
+ 27286 multiletter control sequences out of 15000+200000
+ 574072 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,48p,581b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/swetchha/AppData/Local/Programs
@@ -632,9 +642,9 @@ Here is how much of TeX's memory you used:
 8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/swetchha/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
 s/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (3 pages, 238651 bytes).
+Output written on CSC600_paper.pdf (2 pages, 228446 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 72 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
