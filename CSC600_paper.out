@@ -1,8 +1,7 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Rename Refactorings}{}% 2
-\BOOKMARK [1][-]{section.3}{Preconditions of Rename Class Refactoring}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{The target class cannot be duplicate with an existing class within same package after rename.}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{The target class cannot be duplicate with any imported class from another package.}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{The target sub-class cannot be duplicate with any imported class into its parent class from another package.}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Code Change Rules}{}% 7
-\BOOKMARK [1][-]{section*.1}{References}{}% 8
+\BOOKMARK [1][-]{section.1}{Rename Refactorings}{}% 1
+\BOOKMARK [1][-]{section.2}{Preconditions of Rename Class Refactoring}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{The target class cannot be duplicate with any existing class within same package after rename.}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{The target class cannot be duplicate with any imported class from different package after rename.}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{If a parent class imports a class from different package, the target child class cannot be duplicate with that imported class after rename.}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Code Change Rules}{}% 6
+\BOOKMARK [1][-]{section*.1}{References}{}% 7

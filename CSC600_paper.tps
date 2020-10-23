@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=CSC600_paper.tex
 
 [Frame0_View0,0]
-TopLine=72
-Cursor=1287
+TopLine=45
+Cursor=1977
 
 [Frame1]
 Flags=0

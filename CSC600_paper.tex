@@ -43,7 +43,7 @@
 \maketitle
 
 \section{\textbf{Rename Refactorings}}
-Rename refactoring is a feature that provides an easy way to change the name of identifiers for code symbols without changing its behavior and functionality. Rename can be used to change the names in comments and in strings and to change the declarations and calls of an identifier.
+\lettrine{R} ename Refactoring provides an easy way to change the name of identifiers for code symbols without changing its behavior.
 There are five types of Rename Refactoring: 
 \begin{enumerate}
 	\item Rename Class Declarations 
@@ -54,11 +54,11 @@ There are five types of Rename Refactoring:
 \end{enumerate}
 
 \section{\textbf{Preconditions of Rename Class Refactoring}}
-Rename Class Declarations is a refactoring feature that changes the name of the class and all references to that class to the new name without changing its behavior and functionality. There are certain preconditions required for Rename Class Refactoring. 
+Rename Class Refactoring (RcR) changes the name of the class and all references to that class to the new name without changing its behavior. There are certain preconditions required for RcR. 
 \begin{enumerate}
-	\item The target class cannot be duplicate with an existing class within same package after rename.
-	\item The target class cannot be duplicate with any imported class from another package.
-	\item The target sub-class cannot be duplicate with any imported class into its parent class from another package. 
+	\item The target class cannot be duplicate with any existing class within same package after rename.
+	\item The target class cannot be duplicate with any imported class from different package after rename.
+	\item If a parent class imports a class from different package, the target child class cannot be duplicate with that imported class after rename. 
 \end{enumerate}
 
 \input{Precon1}\label{sec:precon1}

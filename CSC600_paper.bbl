@@ -21,10 +21,6 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Fowler}
-M.~Fowler, \emph{{Refactoring: Improving the Design of Existing Code}}.\hskip
-  1em plus 0.5em minus 0.4em\relax Addison-Wesley, 2019.
-
 \bibitem{EclipseWebPage}
 ``{Eclipse Refactorings Properties},'' \url{https://git.eclipse.org}.
 
