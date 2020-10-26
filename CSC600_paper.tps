@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Precon2.tex
 
 [Frame2_View0,0]
-TopLine=22
-Cursor=2125
+TopLine=18
+Cursor=788
 
 [Frame3]
 Flags=0
@@ -76,5 +76,5 @@ Cursor=788
 
 [SessionInfo]
 FrameCount=4
-ActiveFrame=3
+ActiveFrame=2
 
