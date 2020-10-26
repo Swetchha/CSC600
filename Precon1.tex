@@ -1,4 +1,4 @@
-\subsection{The target class cannot be duplicate with any existing class within same package after rename.}
+\subsection{The target class cannot be duplicate with an existing class within same package after rename.}
 
 When we try to rename a class with an existing class name, the Eclipse produces syntax error:
 ``Please choose another name".~\cite{EclipseWebPage} The classes will be conflicted if we rename the target class using the name of an existing class in the same package. So we can not have duplicate class names in the same package. 
@@ -7,21 +7,22 @@ For example, a package \textsl{p} contains class: \textsl{A}, \textsl{B} and \te
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.35\linewidth}
+\begin{minipage}[t]{0.6\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
-
 class A{}	
 class B{}
 class C{}
+ 
 \end{lstlisting}
 \tiny{(a) Before Rename Refactoring Class A}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.35\linewidth}
+
+
+\begin{minipage}[t]{0.6\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
-
 class B{}	
 class B{}
 class C{}
@@ -41,4 +42,134 @@ Then the java compiler shows up the error that B.java already exists as figure \
 \label{fig:renameclassname}
 \end{figure}
 
-This precondition is applicable even if one or the other file is empty. So checking whether a class with the same name already exists in a package should be the first job we have to do for rename refactoring. 
+Furthermore, this precondition is applicable to nested classes. The examples below show that we can not use the same name either as inner or as outer class for nested classes:
+
+\begin{itemize}
+\item Example 1: The rename refacrtoring of the inner class can not be the same name as other inner classes' name.
+\end{itemize}
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+
+public class A{	
+    class M{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(a) Before Rename Refactoring Inner Class M}
+\end{minipage}
+\hfill
+
+
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+public class A{	
+    class N{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(b) After Rename Refactoring Inner Class M}
+\end{minipage}
+\caption{Example 1}
+\label{fig:nestedclass1}
+\end{figure}
+
+Then the java compiler shows up the error as figure \ref{fig:NC1}:
+
+\begin{figure}[H]
+\centerline{\includegraphics[width=85mm,scale=0.5]{NC1.jpg}}
+\caption{The error of using same inner class name for refactoring}
+\label{fig:NC1}
+\end{figure}
+
+\begin{itemize}
+\item Example 2: The rename refacrtoring of the outer class can not be the same name as the inner classes' name.
+\end{itemize}
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+
+public class A{	
+    class M{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(a) Before Rename Refactoring Outer Class A}
+\end{minipage}
+\hfill
+
+
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+public class M{	
+    class M{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(b) After Rename Refactoring Outer Class A}
+\end{minipage}
+\caption{Example 2}
+\label{fig:nestedclass2}
+\end{figure}
+
+Then the java compiler shows up the error as figure \ref{fig:NC2}:
+
+\begin{figure}[H]
+\centerline{\includegraphics[width=85mm,scale=0.5]{NC2.jpg}}
+\caption{The error of using same inner class name for refactoring}
+\label{fig:NC2}
+\end{figure}
+
+\begin{itemize}
+\item Example 3: The rename refacrtoring of the inner class can not be the same name as the  outer class name.
+\end{itemize}
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+
+public class A{	
+    class M{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(a) Before Rename Refactoring Inner Class M}
+\end{minipage}
+\hfill
+
+
+\begin{minipage}[t]{0.6\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+public class A{	
+    class A{}
+    class N{}
+} 
+\end{lstlisting}
+\tiny{(b) After Rename Refactoring Inner Class M}
+\end{minipage}
+\caption{Example 3}
+\label{fig:nestedclass3}
+\end{figure}
+
+Then the java compiler shows up the error as figure \ref{fig:NC3}:
+
+\begin{figure}[H]
+\centerline{\includegraphics[width=85mm,scale=0.5]{NC3.jpg}}
+\caption{The error of using same outer class name for refactoring}
+\label{fig:NC3}
+\end{figure}
+
+
+Also, this precondition is applicable even if one or the other file is empty. So checking whether a class with the same name already exists in a package should be the first job we have to do for rename refactoring. 
+   
