@@ -18,31 +18,41 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{EclipseWebPage}
-\citation{EclipseWebPage}
 \@writefile{toc}{\contentsline {section}{\numberline {I}\textbf  {Rename Refactorings}}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {II}\textbf  {Preconditions of Rename Class Refactoring}}{1}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}The target class cannot be duplicate with any existing class within same package after rename.}{1}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}The target class cannot be duplicate with an existing class within same package after rename.}{1}{subsection.2.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example of Rename Class Refactoring}}{1}{figure.1}\protected@file@percent }
 \newlabel{fig:afterrr}{{1}{1}{Example of Rename Class Refactoring}{figure.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The error of using same class name for refactoring}}{1}{figure.2}\protected@file@percent }
 \newlabel{fig:renameclassname}{{2}{1}{The error of using same class name for refactoring}{figure.2}{}}
-\newlabel{sec:precon1}{{\mbox  {II-A}}{1}{The target class cannot be duplicate with any existing class within same package after rename}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}The target class cannot be duplicate with any imported class from different package after rename.}{1}{subsection.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Precondition when importing a class}}}{1}{figure.3}\protected@file@percent }
-\newlabel{figure:fig2}{{3}{1}{\textbf {Precondition when importing a class}}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Example 1 of Nested Class Rename Refactoring}}{1}{figure.3}\protected@file@percent }
+\newlabel{fig:nestedclass1}{{3}{1}{Example 1 of Nested Class Rename Refactoring}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The error of using same inner class name for refactoring}}{1}{figure.4}\protected@file@percent }
+\newlabel{fig:NC1}{{4}{1}{The error of using same inner class name for refactoring}{figure.4}{}}
+\citation{EclipseWebPage}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Example 2 of Nested Class Rename Refactoring}}{2}{figure.5}\protected@file@percent }
+\newlabel{fig:nestedclass2}{{5}{2}{Example 2 of Nested Class Rename Refactoring}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The error of using same inner class name for refactoring}}{2}{figure.6}\protected@file@percent }
+\newlabel{fig:NC2}{{6}{2}{The error of using same inner class name for refactoring}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Example 3 of Nested Class Rename Refactoring}}{2}{figure.7}\protected@file@percent }
+\newlabel{fig:nestedclass3}{{7}{2}{Example 3 of Nested Class Rename Refactoring}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The error of using same outer class name for refactoring}}{2}{figure.8}\protected@file@percent }
+\newlabel{fig:NC3}{{8}{2}{The error of using same outer class name for refactoring}{figure.8}{}}
+\newlabel{sec:precon1}{{\mbox  {II-A}}{2}{The target class cannot be duplicate with an existing class within same package after rename}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}The target class cannot be duplicate with any imported class from different package after rename.}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \textbf  {RcR from B to C}}}{2}{figure.9}\protected@file@percent }
+\newlabel{figure:fig2}{{9}{2}{\textbf {RcR from B to C}}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \textbf  {Compilation Unit Error} }}{2}{figure.10}\protected@file@percent }
+\newlabel{figure:comperr}{{10}{2}{\textbf {Compilation Unit Error}}{figure.10}{}}
 \citation{EclipseWebPage}
 \bibstyle{IEEEtran}
 \bibdata{ref}
 \bibcite{EclipseWebPage}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {Compilation Unit Error} }}{2}{figure.4}\protected@file@percent }
-\newlabel{figure:comperr}{{4}{2}{\textbf {Compilation Unit Error}}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Duplicate name conflict} }}{2}{figure.5}\protected@file@percent }
-\newlabel{figure:conflict}{{5}{2}{\textbf {Duplicate name conflict}}{figure.5}{}}
-\newlabel{sec:precon2}{{\mbox  {II-B}}{2}{The target class cannot be duplicate with any imported class from different package after rename}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}If a parent class imports a class from different package, the target child class within same java file cannot be duplicate with that imported class after rename.}{2}{subsection.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Precondition for Renaming Child class within the same java file}}{2}{figure.6}\protected@file@percent }
-\newlabel{figure:figpc3_1}{{6}{2}{Precondition for Renaming Child class within the same java file}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Error produced after renaming the sub-class.}}{2}{figure.7}\protected@file@percent }
-\newlabel{figure:figpc3_2}{{7}{2}{Error produced after renaming the sub-class}{figure.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}\textbf  {Code Change Rules}}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{2}{section*.1}\protected@file@percent }
+\newlabel{sec:precon2}{{\mbox  {II-B}}{3}{The target class cannot be duplicate with any imported class from different package after rename}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}If a parent class imports a class from different package, the target child class within same java file cannot be duplicate with that imported class after rename.}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Precondition for Renaming Child class within the same java file}}{3}{figure.11}\protected@file@percent }
+\newlabel{figure:figpc3_1}{{11}{3}{Precondition for Renaming Child class within the same java file}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Error produced after renaming the sub-class.}}{3}{figure.12}\protected@file@percent }
+\newlabel{figure:figpc3_2}{{12}{3}{Error produced after renaming the sub-class}{figure.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}\textbf  {Code Change Rules}}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{3}{section*.1}\protected@file@percent }

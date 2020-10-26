@@ -1,6 +1,6 @@
 \subsection{The target class cannot be duplicate with any imported class from different package after rename.}
 
-If a class is imported from different package, we have to pre-check that the new name of the target class does not match or duplicate with the imported class after rename refactoring. 
+If a class is imported from different package, we have to pre-check that the new name of the target class is not duplicate with the imported class after rename refactoring. 
 
 \begin{figure}[th]
 \centering
@@ -15,7 +15,7 @@ class A{
 class B{
 } 
 \end{lstlisting}
-\tiny{\textbf{(a) Before Rename Refactoring Class B}}
+\centering(a) Before
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.4\linewidth}
@@ -29,14 +29,14 @@ class A{
 class C{
 } 
 \end{lstlisting}
-\tiny{\textbf{(b) After Rename Refactoring Class B to C}}
+\centering(b) After
 \end{minipage}
-\caption{\textbf{Precondition when importing a class}}
+\caption{\textbf{RcR from B to C}}
 \label{figure:fig2}
 \end{figure}
 
-In Fig. \ref{figure:fig2} (a), we see that class B is not duplicate with class A and class B can be rename refactored to any other name except A as mentioned in section \ref{sec:precon1}. However, in Fig. \ref{figure:fig2} (b), when we try to rename refactor the class \emph{B to C}, java generates compile error \textit{``a compilation unit must not import and declare a type with the same name''}~\cite{EclipseWebPage} as shown in Fig. \ref{figure:comperr}.
-This is because the compiler cannot distinguish between the \emph{imported class C} of package `p' and the \emph{existing class C} of package `q'. Therefore, a conflict in the duplicate names arises as shown in Fig. \ref{figure:conflict}
+In Fig. \ref{figure:fig2} (a), we see that class B is not duplicate with class A and we can implement RcR on class B to any other name except `A' as mentioned in section \ref{sec:precon1}. However, in Fig. \ref{figure:fig2} (b), when we try to implement RcR from \emph{B to C}, java generates compile error \textit{``a compilation unit must not import and declare a type with the same name''}~\cite{EclipseWebPage} as shown in Fig. \ref{figure:comperr}.
+This is because the compiler cannot distinguish between the \emph{imported class C} of package `p' and the \emph{existing class C} of package `q'. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=85mm,scale=0.5]{CUE.jpg}}
@@ -44,10 +44,4 @@ This is because the compiler cannot distinguish between the \emph{imported class
 \label{figure:comperr}
 \end{figure}
 
-\begin{figure}[H]
-\centerline{\includegraphics[width=85mm,scale=0.5]{CNF.jpg}}
-\caption{\textbf{Duplicate name conflict} }
-\label{figure:conflict}
-\end{figure}
-
-Hence, it is essential to pre-check that the target class should not have duplicate name with any of imported class after RcR.
+Therefore, it is essential to pre-check that the target class should not have duplicate name with any of imported class after RcR.
