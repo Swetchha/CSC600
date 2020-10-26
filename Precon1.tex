@@ -7,7 +7,7 @@ For example, a package \textsl{p} contains class: \textsl{A}, \textsl{B} and \te
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 class A{}	
@@ -18,9 +18,7 @@ class C{}
 \tiny{(a) Before Rename Refactoring Class A}
 \end{minipage}
 \hfill
-
-
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 class B{}	
@@ -50,7 +48,7 @@ Furthermore, this precondition is applicable to nested classes. The examples bel
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
@@ -62,19 +60,18 @@ public class A{
 \tiny{(a) Before Rename Refactoring Inner Class M}
 \end{minipage}
 \hfill
-
-
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
+
 public class A{	
     class N{}
     class N{}
 } 
 \end{lstlisting}
-\tiny{(b) After Rename Refactoring Inner Class M}
+\tiny{(b) After Rename Refactoring Inner Class M to N}
 \end{minipage}
-\caption{Example 1}
+\caption{Example 1 of Nested Class Rename Refactoring}
 \label{fig:nestedclass1}
 \end{figure}
 
@@ -92,7 +89,7 @@ Then the java compiler shows up the error as figure \ref{fig:NC1}:
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
@@ -104,19 +101,18 @@ public class A{
 \tiny{(a) Before Rename Refactoring Outer Class A}
 \end{minipage}
 \hfill
-
-
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
+
 public class M{	
     class M{}
     class N{}
 } 
 \end{lstlisting}
-\tiny{(b) After Rename Refactoring Outer Class A}
+\tiny{(b) After Rename Refactoring Outer Class A to M}
 \end{minipage}
-\caption{Example 2}
+\caption{Example 2 of Nested Class Rename Refactoring}
 \label{fig:nestedclass2}
 \end{figure}
 
@@ -134,7 +130,7 @@ Then the java compiler shows up the error as figure \ref{fig:NC2}:
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
@@ -146,19 +142,18 @@ public class A{
 \tiny{(a) Before Rename Refactoring Inner Class M}
 \end{minipage}
 \hfill
-
-
-\begin{minipage}[t]{0.6\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
+
 public class A{	
     class A{}
     class N{}
 } 
 \end{lstlisting}
-\tiny{(b) After Rename Refactoring Inner Class M}
+\tiny{(b) After Rename Refactoring Inner Class M to A}
 \end{minipage}
-\caption{Example 3}
+\caption{Example 3 of Nested Class Rename Refactoring}
 \label{fig:nestedclass3}
 \end{figure}
 
@@ -171,5 +166,5 @@ Then the java compiler shows up the error as figure \ref{fig:NC3}:
 \end{figure}
 
 
-Also, this precondition is applicable even if one or the other file is empty. So checking whether a class with the same name already exists in a package should be the first job we have to do for rename refactoring. 
+Also, this precondition is applicable even if one or the other file is empty. So checking whether a class with the same name already exists in a package should be the first job we have to do for RcR. 
    
