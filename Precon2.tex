@@ -35,8 +35,7 @@ class C{
 \label{figure:fig2}
 \end{figure}
 
-In Fig. \ref{figure:fig2} (a), we see that class B is not duplicate with class A and we can implement RcR on class B to any other name except `A' as mentioned in section \ref{sec:precon1}. However, in Fig. \ref{figure:fig2} (b), when we try to implement RcR from \emph{B to C}, java generates compile error \textit{``a compilation unit must not import and declare a type with the same name''}~\cite{EclipseWebPage} as shown in Fig. \ref{figure:comperr}.
-This is because the compiler cannot distinguish between the \emph{imported class C} of package `p' and the \emph{existing class C} of package `q'. 
+In Fig. \ref{figure:fig2} (a), we see that class B is not duplicate with class A and we can implement RcR on class B to any other name except `A' as mentioned in section \ref{sec:precon1}. However, in Fig. \ref{figure:fig2} (b), when we try to implement RcR from \emph{B to C}, Java compiler produces an error \textit{``a compilation unit must not import and declare a type with the same name''}~\cite{EclipseWebPage} as shown in Fig. \ref{figure:comperr}. This is because the compiler cannot distinguish between the \emph{imported class C} of package `p' and the \emph{existing class C} of package `q'. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=85mm,scale=0.5]{CUE.jpg}}
