@@ -1,6 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Rename Refactorings}{}% 1
 \BOOKMARK [1][-]{section.2}{Preconditions of Rename Class Refactoring}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{The target class cannot be duplicate with an existing class within same package after rename.}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.1}{The target class cannot be duplicate with any existing class within same package after rename.}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{The target class cannot be duplicate with any imported class from different package after rename.}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{If a parent class imports a class from different package, the target child class within same java file cannot be duplicate with that imported class after rename.}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Code Change Rules}{}% 6
