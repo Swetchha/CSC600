@@ -1,6 +1,6 @@
 \subsection{If a parent class imports a class from different package, the target child class within same java file cannot be duplicate with that imported class after rename.}
 
-If a parent class imports a class from different package and if we try renaming a child class with the same name as the class imported into its parent class within the same java file, compiler produces the error as `a compilation unit must not import and declare a type with the same name'~\cite{EclipseWebPage}.This precondition can be explained by the following example.
+If a parent class imports a class from different package and if we try renaming a child class with the same name as the class imported into its parent class within the same java file, compiler produces the error as ``a compilation unit must not import and declare a type with the same name''~\cite{EclipseWebPage}.This precondition can be explained by the following example.
 
 \begin{figure}[th]
 \centering
@@ -10,14 +10,17 @@ A.java
 
 package q;
 import p.C;
-class A{	
+
+public class A{	
 }
+
 class B extends A{	
 }
+
 class D extends B{
 }
 \end{lstlisting}
-\tiny{(a) Before renaming Subclass B}
+\centering{(a) Before renaming child class B}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
@@ -26,23 +29,26 @@ A.java
 
 package q;
 import p.C;
-class A{	
+
+public class A{	
 }
+
 class C extends A{	
 }
+
 class D extends B{
 }	
 \end{lstlisting}
-\tiny{(b) After Renaming Child class  B to C}
+\centering{(b) After renaming child class  B to C}
 \end{minipage}
-\caption{Precondition for Renaming Child class within the same java file}
+\caption{\textbf{Precondition for renaming child class within the same java file}}
 \label{figure:figpc3_1}
 \end{figure}
 
-From the above figure \ref{figure:figpc3_1}, We see that if a parent class A imports a class C from package p and if we try to rename the child class B to C or D to C, java generates compile error as given in the figure \ref{figure:figpc3_2}. As mentioned in  section \ref{sec:precon2}, the same precondition also holds good for renaming a sub-class. This precondition is applicable for all ancestor class and we have to trace back and check if any of the parent class is importing a class with same name before renaming the child class within the same java file.
+From the above Fig. \ref{figure:figpc3_1}, we see that if a parent class A imports a class C from package `p' and if we try to rename the child class B to C or D to C, java generates compile error as shown in the Fig. \ref{figure:figpc3_2}. As mentioned in  section \ref{sec:precon2}, the same precondition also holds good for renaming a child class. This precondition is applicable for all ancestor class and we have to trace back and check if any of the parent class is importing a class with same name before renaming the child class within the same java file.
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=85mm,scale=0.5]{precond3.png}}
-\caption{Error produced after renaming the sub-class.}
+\caption{\textbf{Error produced after renaming the child class.}}
 \label{figure:figpc3_2}
 \end{figure}
 
