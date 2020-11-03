@@ -1,6 +1,6 @@
 \subsection{The target class cannot be duplicate with any existing class within same package after rename.}
 
-When we rename a class with any existing class name, the Java compiler produces Eclipse error message: \textit{``Please choose another name"}.~\cite{EclipseWebPage} The classes will be conflicted if we run rename refactor on the target class using the name of an existing class in the same package. So, we can not have duplicate class names in the same package. 
+When we rename a class with any existing class name, the Java compiler produces error message: \textit{``duplicate class: p.B"}. The classes will be conflicted if we run rename refactor on the target class using the name of an existing class in the same package. So, we can not have duplicate class names in the same package. 
 
 For example, if we run rename refactor on the class name from \textsl{A} to \textsl{B} as in Fig. \ref{fig:afterrr}, then the Java compiler produces an error that B.java already exists as shown in Fig. \ref{fig:renameclassname}.
 
