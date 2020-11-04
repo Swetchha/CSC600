@@ -1,8 +1,8 @@
 \subsection{The target class cannot be duplicate with any existing class within same package after rename.}
 
-When we rename a class with any existing class name, the Java compiler produces error message: \textit{``duplicate class: p.B"}. The classes will be conflicted if we run rename refactor on the target class using the name of an existing class in the same package. So, we can not have duplicate class names in the same package. 
+When we rename a class with any existing class name, the Java compiler produces error message about duplicate class name. The classes will be conflicted if we run rename refactor on the target class using the name of an existing class in the same package. So, we can not have duplicate class names in the same package. 
 
-For example, if we run rename refactor on the class name from \textsl{A} to \textsl{B} as in Fig. \ref{fig:afterrr}, then the Java compiler produces an error that B.java already exists as shown in Fig. \ref{fig:renameclassname}.
+For example, if we run rename refactor on the class name from \textsl{A} to \textsl{B} as in Fig. \ref{fig:afterrr}, then the compiler produces an error message: \textit{``duplicate class: p.B"}.
 
 \begin{figure}[th]
 \centering
@@ -43,11 +43,6 @@ class C{
 \label{fig:afterrr}
 \end{figure}
 
-\begin{figure}[H]
-\centerline{\includegraphics[width=85mm,scale=0.5]{SCN.jpg}}
-\caption{\textbf{Compile error for using same class name after RcR}}
-\label{fig:renameclassname}
-\end{figure}
 
 Also, this precondition is applicable even if the classes are defined in separate java files or any file is empty but are within the same folder. In Fig. \ref{fig:empty}, we try to apply RcR from \emph{A to C} or \emph{B to C} where C.java is an empty file, the compiler produces an error as shown in Fig. \ref{fig:efr}. 
 
@@ -99,7 +94,7 @@ C.java
 \end{figure}
 
 
-Furthermore, the same situation occurs in nested classes. The examples below show that for RcR we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{fig:original}.
+Furthermore, the same situation occurs in nested classes. The examples below show that for RcR, we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{fig:original}.
 
 \begin{figure}[th]
 \centering
@@ -121,7 +116,7 @@ public class A{
 \label{fig:original}
 \end{figure}
 
-\textbf{Example 1:} In order to implement RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. From Fig. \ref{fig:nestedclass1}, when we try to rename refactor the inner class from M to N, the Java compiler produces an error as shown in Fig. \ref{fig:NC1}.
+\textbf{Example 1:} In order to implement RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. From Fig. \ref{fig:nestedclass1}, when we try to rename refactor the inner class from M to N, the Java compiler produces an error message: \textit{``class A.N is already defined in class A"}.
 
 \begin{figure}[th]
 \centering
@@ -143,14 +138,8 @@ public class A{
 \label{fig:nestedclass1}
 \end{figure}
 
-\begin{figure}[H]
-\centerline{\includegraphics[width=75mm,scale=0.4]{NC1.jpg}}
-\caption{\textbf{Compile error for duplicate inner class name after RcR}}
-\label{fig:NC1}
-\end{figure}
 
-\textbf{Example 2:} In order to implement RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. From Fig. \ref{fig:nestedclass2}, when we try to use same name for outer class and inner class, the Java compiler produces an error as shown in Fig. \ref{fig:NC2} and Fig. \ref{fig:NC3}.
-
+\textbf{Example 2:} In order to implement RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. From Fig. \ref{fig:nestedclass2}, when we try to use same name for outer class and inner class, the Java compiler produces an error stating that the class name is already defined in the package.
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.45\linewidth}
@@ -186,18 +175,6 @@ public class A{
 \end{minipage}
 \caption{\textbf{Example 2 of Nested Class after RcR}}
 \label{fig:nestedclass2}
-\end{figure}
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=75mm,scale=0.4]{NC2.jpg}}
-\caption{\textbf{Compile error for RcR outer class same as inner class name}}
-\label{fig:NC2}
-\end{figure}
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=75mm,scale=0.4]{NC3.jpg}}
-\caption{\textbf{Compile error for RcR inner class same as outer class name}}
-\label{fig:NC3}
 \end{figure}
 
 Therefore, checking whether a class with the same name already exists in a package should be the first precondition for RcR. 
