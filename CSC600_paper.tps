@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=CSC600_paper.tex
 
 [Frame0_View0,0]
-TopLine=45
-Cursor=988
+TopLine=56
+Cursor=872
 
 [Frame1]
 Flags=0
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=Precon1.tex
 
 [Frame1_View0,0]
-TopLine=196
-Cursor=5124
+TopLine=76
+Cursor=3740
 
 [Frame2]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Precon2.tex
 
 [Frame2_View0,0]
-TopLine=25
-Cursor=788
+TopLine=80
+Cursor=2559
 
 [Frame3]
 Flags=0
@@ -71,10 +71,10 @@ Class=LaTeXView
 Document=Precon3.tex
 
 [Frame3_View0,0]
-TopLine=43
-Cursor=1250
+TopLine=35
+Cursor=834
 
 [SessionInfo]
 FrameCount=4
-ActiveFrame=1
+ActiveFrame=0
 

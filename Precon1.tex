@@ -44,57 +44,7 @@ class C{
 \end{figure}
 
 
-Also, this precondition is applicable even if the classes are defined in separate java files or any file is empty but are within the same folder. In Fig. \ref{fig:empty}, we try to apply RcR from \emph{A to C} or \emph{B to C} where C.java is an empty file, the compiler produces an error as shown in Fig. \ref{fig:efr}. 
-
-\begin{figure}[th]
-\centering
-\begin{minipage}[t]{0.45\linewidth}
-\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-A.java
-
-public class A{
-}
-	
-class B{
-}
-
-
-C.java
-//empty file
- 
-\end{lstlisting}
-\centering(a) Before
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.45\linewidth}
-\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-A.java
-
-public class A{
-}
-	
-class C{
-}
-
-
-C.java
-//empty file
-
-\end{lstlisting}
-\centering(b) After
-\end{minipage}
-\caption{\textbf{RcR from B to C even if C.java is empty}}
-\label{fig:empty}
-\end{figure}
-
-\begin{figure}[H]
-\centerline{\includegraphics[width=85mm,scale=0.5]{EFE.jpg}}
-\caption{\textbf{Compile error for same file name after RcR}}
-\label{fig:efr}
-\end{figure}
-
-
-Furthermore, the same situation occurs in nested classes. The examples below show that for RcR, we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{fig:original}.
+Furthermore, the same situation occurs in nested classes. The examples below show that for RcR we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{fig:original}.
 
 \begin{figure}[th]
 \centering
@@ -116,7 +66,7 @@ public class A{
 \label{fig:original}
 \end{figure}
 
-\textbf{Example 1:} In order to implement RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. From Fig. \ref{fig:nestedclass1}, when we try to rename refactor the inner class from M to N, the Java compiler produces an error message: \textit{``class A.N is already defined in class A"}.
+\textbf{Example 1:} In order to apply RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. As shown in Fig. \ref{fig:nestedclass1}, when we run RcR on the inner class from M to N, the Java compiler produces an error as shown in Fig. \ref{fig:NC1}.
 
 \begin{figure}[th]
 \centering
@@ -138,8 +88,8 @@ public class A{
 \label{fig:nestedclass1}
 \end{figure}
 
+\textbf{Example 2:} In order to apply RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. As shown in Fig. \ref{fig:nestedclass2}, when we use same name for outer class and inner class, the Java compiler produces an error as shown in Fig. \ref{fig:NC2} and Fig. \ref{fig:NC3}.
 
-\textbf{Example 2:} In order to implement RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. From Fig. \ref{fig:nestedclass2}, when we try to use same name for outer class and inner class, the Java compiler produces an error stating that the class name is already defined in the package.
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.45\linewidth}
@@ -164,10 +114,10 @@ package p;
 
 public class A{	
     
-  class A{
+  class M{
   }
     
-  class N{
+  class A{
   }
 } 
 \end{lstlisting}
