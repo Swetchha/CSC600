@@ -1,0 +1,51 @@
+\subsection{The target class file name cannot be duplicate with any existing java file name within same package after rename.}
+
+If classes are defined in separate java files, we have to pre-check that the new name of the target class declared in its class file name is not duplicate with any existing Java file name within the same package. 
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+//A.java
+
+public class A{
+}
+	
+class B{
+}
+
+
+//C.java
+//empty file
+ 
+\end{lstlisting}
+\centering(a) Before
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+//C.java
+
+public class C{
+}
+	
+class B{
+}
+
+
+//C.java
+//empty file
+
+\end{lstlisting}
+\centering(b) After
+\end{minipage}
+\caption{\textbf{RcR from A to C if A is declared in file A.java}}
+\label{figure:classFileName}
+\end{figure}
+
+For example, from Fig. \ref{figure:classFileName}, when we apply RcR from \emph{A to C} where C.java is an empty file, the Java compiler produces an error \textit{``Compilation unit `C.java' already exists''}. This is because after RcR the Java file also gets renamed from \emph{A.java to C.java} and therefore creates a conflict for duplicate file name as \emph{C.java} already exists in the same package. 
+
+However, we can apply RcR from \emph{B to C} as class B is not declared within its class file name. 
+
+
+
