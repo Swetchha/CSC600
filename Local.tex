@@ -1,4 +1,41 @@
-\section{\textbf{Preconditions of Rename Local Variable Refactoring}}
+ \section{\textbf{Preconditions of Rename Local Variable Refactoring}}
+ 
+ 
 Rename Local Variable Refactoring (RlR) changes the name of the local variable and all references to that variable to the new name without changing its behavior. There are certain preconditions required for RlR.
 
-\input{Precon5}
+ \subsection{The target name of local variable cannot be duplicate with any of the existing local variable in a method.}
+ 
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   void m1(int num) {
+	int x = 1;
+	int y = 2
+    }
+}
+\end{lstlisting}
+\centering(a) Before
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   void m1(int num) {
+	int num = 1;
+	int y = 2;
+    }
+}
+\end{lstlisting}
+\centering(b) After
+\end{minipage}
+\caption{\textbf{RlR from x to num}}
+\label{figure:precond5_1}
+\end{figure}
+
+For example, from Fig. \ref{figure:precond5_1}, when we apply RlR for local variable `x' to `num' , the java compiler produces the error as ``variable num is already defined in method m1(int)''. Similarly we cannot run RlR on `x'  to `y' or `y'  to `num'. Renaming local variables to existing local variable in a method creates a conflict as duplicate local variable.
+
+Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with the any of the existing local variable in a method after RlR.
