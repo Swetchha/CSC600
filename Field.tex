@@ -1,1 +1,116 @@
- \section{\textbf{Preconditions of Rename Field Refactoring}}
+\section{\textbf{Preconditions of Rename Field Refactoring}}
+Rename Field Refactoring(RfR) changes the declaration and usages of the field to the new name without changing its behavior.
+Fields are the variables of a class i.e. instance variables and static variables.
+There are certain preconditions required for RfR.
+
+\begin{enumerate}
+	\item The target name of field cannot be duplicate with any existing field within same class after rename.
+	\item The target name of field cannot be duplicate with any local variable within same method after rename.
+\end{enumerate}
+
+\subsection{The target name of field cannot be duplicate with any existing field within same class after rename.}
+
+\textbf{Example 1:} In order to apply RfR on field, we have to pre-check that the new name of the field is not duplicate with any existing field name within same class. As shown in Fig. \ref{figure:sameType}, when we apply RfR from \emph{`j' to `i'}, Java compiler produces an error \textit{``variable i is already defined in class A''}. This is because of the conflict for duplicate field declaration. 
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.4\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   int i = 0;
+   int j = 2;
+}
+
+\end{lstlisting}
+\centering(a) Before
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   int i = 0;
+   int i = 2;
+}
+\end{lstlisting}
+\centering(b) After
+\end{minipage}
+\caption{\textbf{RfR from j to i}}
+\label{figure:sameType}
+\end{figure}
+
+\textbf{Example 2:} In order to apply RfR on field, we have to pre-check that the new name of the field is not duplicate with any existing field name of any data type within same class. As shown in Fig. \ref{figure:diffType}, when we apply RfR from \emph{`s' to `i'}, Java compiler produces an error \textit{``variable i is already defined in class A''}. This is because the compiler will not be able to distinguish between different type variables `String i' and `int i'. 
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.48\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   int i = 0;
+   String s = "hi";
+}
+
+\end{lstlisting}
+\centering(a) Before
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+   int i = 0;
+   String i = "hi";
+}
+\end{lstlisting}
+\centering(b) After
+\end{minipage}
+\caption{\textbf{RfR from s to i}}
+\label{figure:diffType}
+\end{figure}
+
+\subsection{The target name of field cannot be duplicate with any local variable within same method after rename.}
+In order to apply RfR on field, we have to pre-check that the new name of field is not duplicate with any local variable name, if field is being used in the same block or method as local variable. 
+
+As shown in Fig. \ref{figure:sameBlock}(a), on executing the output is `1'. However,  after we apply RfR from \emph{`x' to `y'} and on executing Fig. \ref{figure:sameBlock}(b), the output is `7'. Although the compiler did not produce any error but the behavior of code has changed since the output on RfR got changed. 
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A{
+   int x = 0;
+   void m(int y){
+      x++;
+      y++;
+      System.out.print(x);
+   }
+   void main(String[] args){
+      A.m(5);
+   }
+}
+\end{lstlisting}
+\centering(a) Before
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A{
+   int y = 0;
+   void m(int y){
+      y++;
+      y++;
+      System.out.print(y);
+   }
+   void main(String[] args){
+      A.m(5);
+   }
+}\end{lstlisting}
+\centering(b) After
+\end{minipage}
+\caption{\textbf{RfR from x to y}}
+\label{figure:sameBlock}
+\end{figure}
+
+Therefore, it is essential to pre-check that the new name of field is not duplicate with any existing local variable if both are used in same block. 
