@@ -9,5 +9,4 @@
 \BOOKMARK [1][-]{section.4}{Preconditions of Rename Local Variable Refactoring}{}% 9
 \BOOKMARK [2][-]{subsection.4.1}{The target name of local variable cannot be duplicate with any of the existing local variable in a method.}{section.4}% 10
 \BOOKMARK [1][-]{section.5}{Preconditions of Rename Package Refactoring}{}% 11
-\BOOKMARK [2][-]{subsection.5.1}{The target package cannot be duplicate with any existing package name within same project folder.}{section.5}% 12
-\BOOKMARK [1][-]{section.6}{Preconditions of Rename Method Refactoring}{}% 13
+\BOOKMARK [1][-]{section.6}{Preconditions of Rename Method Refactoring}{}% 12

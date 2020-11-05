@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  4 NOV 2020 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  5 NOV 2020 16:52
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -567,12 +567,12 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <7> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 47.
 ) (Precon3.tex) (Field.tex [2]
-Overfull \hbox (4.20197pt too wide) in paragraph at lines 89--90
+Overfull \hbox (4.20197pt too wide) in paragraph at lines 75--76
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (4.20197pt too wide) in paragraph at lines 106--107
+Overfull \hbox (4.20197pt too wide) in paragraph at lines 92--93
 [][][][][][][][][][][][][] 
  []
 
@@ -595,26 +595,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 952FE4E9678856BF9A6E69D202A7DB36;1501.
+(rerunfilecheck)             Checksum: 27CF978062D635431282C9B55C864683;1354.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
  ) 
 Here is how much of TeX's memory you used:
- 11709 strings out of 480790
- 179212 string characters out of 2895894
- 716057 words of memory out of 3000000
- 27267 multiletter control sequences out of 15000+200000
+ 11719 strings out of 480790
+ 179358 string characters out of 2895894
+ 716085 words of memory out of 3000000
+ 27266 multiletter control sequences out of 15000+200000
  568759 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,48p,666b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,48p,777b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/swetchha/AppData/Local/Programs
 /MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr
 8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/App
 Data/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (3 pages, 137780 bytes).
+Output written on CSC600_paper.pdf (3 pages, 139261 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 239 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 250 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
