@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  5 NOV 2020 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  7 NOV 2020 20:22
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -567,16 +567,16 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <7> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 47.
 ) (Precon3.tex) (Field.tex [2]
-Overfull \hbox (4.20197pt too wide) in paragraph at lines 75--76
+Overfull \hbox (4.20197pt too wide) in paragraph at lines 76--77
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (4.20197pt too wide) in paragraph at lines 92--93
+Overfull \hbox (4.20197pt too wide) in paragraph at lines 94--95
 [][][][][][][][][][][][][] 
  []
 
-) (Local.tex) (Package.tex)
+) (Local.tex) (Package.tex [3])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -589,9 +589,10 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
-[3]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
- (CSC600_paper.aux)
+[4
+
+] (CSC600_paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
@@ -599,10 +600,10 @@ Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
  ) 
 Here is how much of TeX's memory you used:
- 11719 strings out of 480790
- 179358 string characters out of 2895894
- 716085 words of memory out of 3000000
- 27266 multiletter control sequences out of 15000+200000
+ 11762 strings out of 480790
+ 179989 string characters out of 2895894
+ 730227 words of memory out of 3000000
+ 27270 multiletter control sequences out of 15000+200000
  568759 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,48p,777b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -612,9 +613,9 @@ Here is how much of TeX's memory you used:
 ocal/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/App
 Data/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (3 pages, 139261 bytes).
+Output written on CSC600_paper.pdf (4 pages, 147487 bytes).
 PDF statistics:
- 399 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
+ 452 PDF objects out of 1000 (max. 8388607)
+ 289 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
