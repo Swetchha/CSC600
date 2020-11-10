@@ -39,22 +39,29 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textbf  {RcR from A to C if A is declared in file A.java}}}{2}{figure.7}\protected@file@percent }
 \newlabel{figure:classFileName}{{7}{2}{\textbf {RcR from A to C if A is declared in file A.java}}{figure.7}{}}
 \newlabel{sec:precon3}{{\mbox  {II-C}}{2}{The target class file name cannot be duplicate with any existing java file name within same package after rename}{figure.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}\textbf  {Preconditions of Rename Field Refactoring}}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}The target name of field cannot be duplicate with any existing field within same class after rename.}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}\textbf  {Preconditions of Rename Method Refactoring}}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}\textbf  {Preconditions of Rename Field Refactoring}}{2}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}The target name of field cannot be duplicate with any existing field within same class after rename.}{2}{subsection.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \textbf  {RfR on field variables}}}{3}{figure.8}\protected@file@percent }
 \newlabel{figure:field}{{8}{3}{\textbf {RfR on field variables}}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}The target name of field cannot be duplicate with any local variable within same method after rename.}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}The target name of field cannot be duplicate with any local variable within same method after rename.}{3}{subsection.4.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \textbf  {RfR from x to y}}}{3}{figure.9}\protected@file@percent }
 \newlabel{figure:sameBlock}{{9}{3}{\textbf {RfR from x to y}}{figure.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}\textbf  {Preconditions of Rename Local Variable Refactoring}}{3}{section.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \textbf  {Before RfR on child class field variable j}}}{3}{figure.10}\protected@file@percent }
 \newlabel{figure:beforeRfR}{{10}{3}{\textbf {Before RfR on child class field variable j}}{figure.10}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces \textbf  {After RfR on child class field variable j to i}}}{3}{figure.11}\protected@file@percent }
 \newlabel{figure:afterRfR}{{11}{3}{\textbf {After RfR on child class field variable j to i}}{figure.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}The target name of local variable cannot be duplicate with any of the existing local variable in a method.}{3}{subsection.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \textbf  {RlR from x to num}}}{3}{figure.12}\protected@file@percent }
-\newlabel{figure:precond5_1}{{12}{3}{\textbf {RlR from x to num}}{figure.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}\textbf  {Preconditions of Rename Package Refactoring}}{3}{section.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \textbf  {Example of RpR}}}{4}{figure.13}\protected@file@percent }
-\newlabel{fig:RpR}{{13}{4}{\textbf {Example of RpR}}{figure.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}\textbf  {Preconditions of Rename Method Refactoring}}{4}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}\textbf  {Preconditions of Rename Local Variable Refactoring}}{3}{section.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \textbf  {Scope of local variable}}}{4}{figure.12}\protected@file@percent }
+\newlabel{figure:precond5_4}{{12}{4}{\textbf {Scope of local variable}}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}The renamed local variable cannot be duplicate with any of the existing local variable in a method or block or constructor.}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \textbf  {Duplicate local variables}}}{4}{figure.13}\protected@file@percent }
+\newlabel{figure:precond5_1}{{13}{4}{\textbf {Duplicate local variables}}{figure.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}The renamed local variable must not result in variable shadowing.}{4}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces \textbf  {Ex 1 : Variable Shadowing}}}{4}{figure.14}\protected@file@percent }
+\newlabel{figure:precond5_2}{{14}{4}{\textbf {Ex 1 : Variable Shadowing}}{figure.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces \textbf  {Ex 2 : Variable Shadowing}}}{4}{figure.15}\protected@file@percent }
+\newlabel{figure:precond5_3}{{15}{4}{\textbf {Ex 2 : Variable Shadowing}}{figure.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}\textbf  {Preconditions of Rename Package Refactoring}}{5}{section.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces \textbf  {Example of RpR}}}{5}{figure.16}\protected@file@percent }
+\newlabel{fig:RpR}{{16}{5}{\textbf {Example of RpR}}{figure.16}{}}
