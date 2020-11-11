@@ -1,47 +1,5 @@
 \section{\textbf{Preconditions of Rename Local Variable Refactoring}}
-A variable defined within a block or method or constructor is called local variable.
-The scope of the local variables shown in Fig. \ref{figure:precond5_4},are as follows
-\begin{enumerate}
-\item These variable are created when the block in entered or the function is called and destroyed after exiting from the block or when the call returns from the function.
-\item The scope of these variables exists only within the block in which the variable is declared. i.e. we can access these variable only within that block.
-\item Initialization of Local Variable is Mandatory.
-\end{enumerate}
-
-\begin{figure}[th]
-\centering
-\begin{minipage}[t]{0.95\linewidth}
-\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
-	int i = 1;
-	//Constructor
-	B () {
-	    int j = 10;
-	    System.out.println(j); // Outputs 10
-	}
-
-	public void printNum() {
-		int x = 2;
-		int y = 3;
-// access to local and field variables is allowed
-		System.out.println(x); // outputs 2
-		System.out.println(y); // outputs 3
-		System.out.println(i); // outputs 1
-	}
-
-	public static void main(String args[]) {
-		B b = new B();
-		b.printNum();
-// access to local variables is not allowed
-		System.out.println(x); // Error
-		System.out.println(y); // Error
-		System.out.println(j); // Error
-	}
-}
-\end{lstlisting}
-\end{minipage}
-\caption{\textbf{Scope of local variable}}
-\label{figure:precond5_4}
-\end{figure}
+A variable defined within a block or method or constructor is called local variable. The scope of the local variables exists only within the block in which the variable is declared and destroyed after exiting from the block or when the call returns from the function.
 
 Rename Local Variable Refactoring (RlR) changes the name of the local variable and all references to that variable to the new name without changing its behavior. There are certain preconditions required for RlR.
 \begin{enumerate}
@@ -53,7 +11,7 @@ Rename Local Variable Refactoring (RlR) changes the name of the local variable a
  
 From Fig. \ref{figure:precond5_1}, we see two examples of duplicate local variable. In Example 1 when we apply RlR for local variable `x' to `num' , the java compiler produces the error as ``variable num is already defined in method m1(int)''. Similarly we cannot run RlR on  `y'  to `num' or `x'  to `y' as shown in example 2. Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
 
-Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with the any of the existing local variable in a method or block or constructor after RlR.
+Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method or block or constructor after RlR.
 
 \begin{figure}[th]
 \centering
@@ -61,9 +19,9 @@ Therefore, it is essential to pre-check that the target name of local variable s
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
-   void m1(int num) {
-	int x = 1; // rename to num
-	int y = 2
+    void m1(int num) {
+       int x = 1; // rename to num
+       int y = 2
     }
 }
 \end{lstlisting}
@@ -74,8 +32,8 @@ public class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
 
-   void m1(int num) {
-	int x = 1; // rename to y
+    void m1(int num) {
+        int x = 1; // rename to y
 	int y = 2;
     }
 }
@@ -89,28 +47,25 @@ public class B {
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. For Example, from Fig. \ref{figure:precond5_2},  the class B has two field variables (name, age) and a method (display()). In the method there are two local variables same as the field variables (name and type). When we access the variables in the method, the local variable values will be printed shadowing the field variables.
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. For Example, from Fig. \ref{figure:precond5_2},  the class B has  field variable `name' and a method (display()). In the method there is local variable same as the field variable `name'. When we access the variable in the method, the local variable value will be printed shadowing the field variable.
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.95\linewidth}
+\begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
-	String name = "John";
-	int age = 12;
+    String name = "John";
+    
+    public void display() {
+      String name = "Bob";
+      System.out.println(name); // outputs Bob		
+}
 
-	public void display() {
-		String name = "Bob";
-		int age = 20;
-		System.out.println(name); // outputs Bob
-		System.out.println(age); // outputs 20
-	}
-
-	public static void main(String args[]) {
-		B b = new B();
-		b.display();
-		
-	}
+    public static void main(String args[]) {
+    
+      B b = new B();
+      b.display();	
+   }
 }
 \end{lstlisting}
 \end{minipage}
@@ -118,37 +73,33 @@ public class B {
 \label{figure:precond5_2}
 \end{figure}
 
-Similarly variable shadowing occurs when there are same variables are defined in different methods of parent and child classes.
-For Example, from Fig. \ref{figure:precond5_3}, the field variable  in parent class B and child class C , local variable in method `m1' of class B and method `m2' of class C has the same variable name as `id'. When we try to access the variable `id' in methods, the respective local variable will be printed shadowing the field variable of its parent class.
+Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
+For Example, from Fig. \ref{figure:precond5_3}, the field variable  in parent class B and child class C , local variable in method `m1' of class B has the same variable name as `age'. When we try to access the variable `age' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.95\linewidth}
+\begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
-	int id = 1;
+    int age = 1;
 
-	public void m1() {
-		int id = 2;
-		System.out.println("id: " + id);
-	}
+    public void m1() {
+      int age = 2;
+      System.out.println("age: " + age);
+   }
 }
 
 class C extends B {
-	int id = 3;
-	
-	public void m2() {
-		int id = 4;
-		System.out.println("id: " + id); 
-	}
+    int age = 3;
 }
-public class Main {
-	public static void main(String args[]) {
-		B b = new B();
-		b.m1(); 	// outputs 2
-		C c = new C();
-		c.m2(); 	// outputs 4
 
-	}
+public class Main {
+    public static void main(String args[]) {
+  
+       B b = new B();
+       b.m1(); 	// outputs 2
+       C c = new C();
+       c.m1(); 	// outputs 2
+   }
 }
 \end{lstlisting}
 \end{minipage}
