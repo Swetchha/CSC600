@@ -54,7 +54,7 @@ Document=Precon1.tex
 
 [Frame2_View0,0]
 TopLine=123
-Cursor=3444
+Cursor=3491
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=Field.tex
 
 [Frame3_View0,0]
-TopLine=81
-Cursor=3192
+TopLine=219
+Cursor=7498
 
 [SessionInfo]
 FrameCount=4
