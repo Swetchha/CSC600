@@ -169,22 +169,18 @@ The child class variables are able to reduce the visibility of the parent class 
 \centering
 \begin{minipage}[t]{0.75\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-class A {
+public class A {
 
    public int i = 0;
-}
-
-class B extends A {
-
-   private int j = 1;
-}
-
-public class C {
+	
    public static void main(String[] args){
-
       B b = new B();
       System.out.print(b.i); // Outputs 0
    }
+}
+
+class B extends A {
+   private int j = 1;
 }
 \end{lstlisting}
 \centering{(a) Before RcR on child class field j}
@@ -192,22 +188,18 @@ public class C {
 \hfill
 \begin{minipage}[t]{0.75\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-class A {
+public class A {
 
    public int i = 0;
+	
+   public static void main(String[] args){
+      B b = new B();
+      System.out.print(b.i); // Error
+   }
 }
 
 class B extends A {
-
-   private int i = 1; 
-}
-
-public class C {
-   public static void main(String[] args){
-
-      B b = new B();
-      System.out.print(b.i); // Outputs 1
-   }
+   private int i = 1;
 }
 \end{lstlisting}
 \centering{(b) After RcR on child class field j to i}
@@ -217,6 +209,6 @@ public class C {
 \end{figure}
 
 
-As shown in Fig. \ref{figure:jtoi}(a), the two field variables `i' and `j' are completely distinct and have completely separate visibilities in different classes. However, on applying RfR on child class variable from `j' to `i' as shown in Fig. \ref{figure:jtoi}(b), its public visibility gets reduced to private thereby changes the desired output from `0' to `1'. 
+As shown in Fig. \ref{figure:jtoi}(a), the two field variables `i' and `j' are completely distinct and have completely separate visibilities in different classes. However, on applying RfR on child class variable from `j' to `i' as shown in Fig. \ref{figure:jtoi}(b), the public visibility of field variable `i' gets reduced to private and Java compiler produces an error ``field B.i is not visible''. 
 
 Therefore, it is essential to pre-check that the new name of the field variable does not result in visibility reduction. 

@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Field.tex
 
 [Frame2_View0,0]
-TopLine=15
-Cursor=1575
+TopLine=209
+Cursor=6817
 
 [Frame3]
 Flags=0
