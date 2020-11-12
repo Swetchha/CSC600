@@ -10,7 +10,7 @@
 \BOOKMARK [2][-]{subsection.5.2}{The target name of field cannot be duplicate with any local variable within same method after rename.}{section.5}% 10
 \BOOKMARK [2][-]{subsection.5.3}{The duplicate field variable in a child class cannot reduce visibility.}{section.5}% 11
 \BOOKMARK [1][-]{section.6}{Preconditions of Rename Local Variable Refactoring}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{The renamed local variable cannot be duplicate with any of the existing local variable in a method or block or constructor.}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.1}{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}{section.6}% 13
 \BOOKMARK [2][-]{subsection.6.2}{The renamed local variable must not result in variable shadowing.}{section.6}% 14
 \BOOKMARK [1][-]{section.7}{Preconditions of Rename Package Refactoring}{}% 15
 \BOOKMARK [1][-]{section*.1}{References}{}% 16

@@ -1,95 +1,149 @@
 \section{\textbf{Preconditions of Rename Local Variable Refactoring}}
-A variable defined within a block or method or constructor is called local variable. The scope of the local variables exists only within the block in which the variable is declared and destroyed after exiting from the block or when the call returns from the function.
+A local variable is a variable declared inside a method and it is only accessible inside the method that declared it
 
-Rename Local Variable Refactoring (RlR) changes the name of the local variable and all references to that variable to the new name without changing its behavior. There are certain preconditions required for RlR.
+Rename Local Variable Refactoring (RvR) changes the name of the local variable and all references to that variable to the new name without changing its behavior. There are certain preconditions required for RvR.
 \begin{enumerate}
 \item The renamed local variable cannot be duplicate with any of the existing local variable in a method or block or constructor.
 \item The renamed local variable must not result in variable shadowing.
 \end{enumerate}
 
-\subsection{The renamed local variable cannot be duplicate with any of the existing local variable in a method or block or constructor.}
+\subsection{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}
  
-From Fig. \ref{figure:precond5_1}, we see two examples of duplicate local variable. In Example 1 when we apply RlR for local variable `x' to `num' , the java compiler produces the error as ``variable num is already defined in method m1(int)''. Similarly we cannot run RlR on  `y'  to `num' or `x'  to `y' as shown in example 2. Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
+From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable `x' to `num' , the java compiler produces the error as ``variable num is already defined in method m1(int)''. Similarly we cannot run RvR on  `y'  to `num' or `x'  to `y' . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
 
-Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method or block or constructor after RlR.
+Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
     void m1(int num) {
-       int x = 1; // rename to num
+       int x = 1; 
        int y = 2
     }
 }
 \end{lstlisting}
-\centering(a) Example 1
+\centering(a) Before
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
 
     void m1(int num) {
-        int x = 1; // rename to y
+        int num = 1; 
 	int y = 2;
     }
 }
 \end{lstlisting}
-\centering(b) Example 2
+\centering(b) After 
 \end{minipage}
-\caption{\textbf{Duplicate local variables}}
+\caption{\textbf{RvR from x to num}}
 \label{figure:precond5_1}
+\end{figure}
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+
+    void m1(int num) {
+       int x = 1; 
+       int y = 2
+    }
+}
+\end{lstlisting}
+\centering(a) Before 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class B {
+
+    void m1(int num) {
+        int y = 1; 
+	int y = 2;
+    }
+}
+\end{lstlisting}
+\centering(b) After 
+\end{minipage}
+\caption{\textbf{RvR from x to y}}
+\label{figure:precond5_2}
 \end{figure}
 
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. For Example, from Fig. \ref{figure:precond5_2},  the class B has  field variable `name' and a method (display()). In the method there is local variable same as the field variable `name'. When we access the variable in the method, the local variable value will be printed shadowing the field variable.
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. For Example, from Fig. \ref{figure:precond5_3},  the class B has  field variable `i' with value 2 and a method (display()). In a method there is local variable `j' with value 1. After RvR from `j' to `i' , when we access the variable in the method, the local variable value will be printed shadowing the field variable.
 
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
-    String name = "John";
+    public int i = 2;
     
     public void display() {
-      String name = "Bob";
-      System.out.println(name); // outputs Bob		
+      int j = 1;
+      System.out.println(j); 		
 }
 
     public static void main(String args[]) {
     
       B b = new B();
-      b.display();	
+      b.display();	//Outputs 1
    }
 }
 \end{lstlisting}
+\centering(a) Before 
 \end{minipage}
-\caption{\textbf{Ex 1 : Variable Shadowing}}
-\label{figure:precond5_2}
+\hfill
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class B {
+    public int i = 2;
+    
+    public void display() {
+      int i = 1;
+      System.out.println(i); 		
+}
+
+    public static void main(String args[]) {
+    
+      B b = new B();
+      b.display();	//Outputs 1
+   }
+}
+\end{lstlisting}
+\centering(b) After 
+\end{minipage}
+\caption{\textbf{RvR from j to i results in variable shadowing}}
+\label{figure:precond5_3}
 \end{figure}
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_3}, the field variable  in parent class B and child class C , local variable in method `m1' of class B has the same variable name as `age'. When we try to access the variable `age' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
+For Example, from Fig. \ref{figure:precond5_4}, the field variable  in parent class B has variable `i' with value 1 and child class C has a variable `k' with value 3, local variable in method `m1' of class B has the  variable name as `j' with value 2.  Aft RvR from j to i and k to i ,when we try to access the variable `i' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
+
+
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
-    int age = 1;
+    int i = 1;
 
     public void m1() {
-      int age = 2;
-      System.out.println("age: " + age);
+      int j = 2;
+      System.out.println(j);
    }
 }
 
 class C extends B {
-    int age = 3;
+    int k = 3;
 }
 
 public class Main {
@@ -103,8 +157,37 @@ public class Main {
 }
 \end{lstlisting}
 \end{minipage}
-\caption{\textbf{Ex 2 : Variable Shadowing}}
-\label{figure:precond5_3}
+\hfill
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class B {
+    int i = 1;
+
+    public void m1() {
+      int i = 2;
+      System.out.println(i);
+   }
+}
+
+class C extends B {
+    int i = 3;
+}
+
+public class Main {
+    public static void main(String args[]) {
+  
+       B b = new B();
+       b.m1(); 	// outputs 2
+       C c = new C();
+       c.m1(); 	// outputs 2
+   }
+}
+\end{lstlisting}
+\centering(b) After 
+\end{minipage}
+\caption{\textbf{RvR from j to i  and k to i results in variable shadowing}}
+\label{figure:precond5_4}
 \end{figure}
 
-Therefore, it is essential to pre-check that local variable must not result in variable shadowing after RlR.
+
+Therefore, it is essential to pre-check that local variable must not result in variable shadowing after RvR.
