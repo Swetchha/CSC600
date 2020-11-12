@@ -42,13 +42,18 @@
 
 \maketitle
 
+\section{\textbf{Introduction}}
+\lettrine{R}{efactoring} is a controlled technique for improving the design of an existing code base. Its essence is applying a series of small behavior-preserving transformations, each of which ``too small to be worth doing''. However the cumulative effect of each of these transformations is quite significant. By doing them in small steps we reduce the risk of introducing errors. We also avoid having the system broken while carrying out the restructuring - which allows us to gradually refactor a system over an extended period of time.~\cite{Fowler}
+
+In simple words, refactoring is a behavior preserving code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - precondition checks and code changes. In this paper, we brief about the rename refactoring and explain the preconditions for each type of rename refactorings. 
+
 \section{\textbf{Rename Refactorings}}
-\lettrine{R} {ename} Refactoring changes the name of identifiers in a program without changing the program's behavior.
+Rename Refactoring changes the name of identifiers in a program without changing the program's behavior.
 There are five types of Rename Refactoring in Java: 
 \begin{enumerate}
 	\item Rename Class Declarations 
 	\item Rename Method Declarations  
-	\item Rename Field Declarations  
+	\item Rename Field Variables  
 	\item Rename Local Variables  
 	\item Rename Package Declarations
 \end{enumerate}
@@ -77,7 +82,7 @@ Rename Class Refactoring (RcR) changes the name of the class and all references 
 
 
 
-%\bibliographystyle{IEEEtran}
-%\bibliography{ref}
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
 
 \end{document}

@@ -10,9 +10,9 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1421
-NormalPos.bottom=745
+NormalPos.top=26
+NormalPos.right=1379
+NormalPos.bottom=397
 Class=LaTeXView
 Document=Local.tex
 
@@ -28,15 +28,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1421
-NormalPos.bottom=745
+NormalPos.top=26
+NormalPos.right=1379
+NormalPos.bottom=397
 Class=LaTeXView
 Document=CSC600_paper.tex
 
 [Frame1_View0,0]
-TopLine=52
-Cursor=2450
+TopLine=49
+Cursor=2492
 
 [Frame2]
 Flags=0
@@ -46,15 +46,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1421
-NormalPos.bottom=745
+NormalPos.top=26
+NormalPos.right=1379
+NormalPos.bottom=397
 Class=LaTeXView
 Document=Field.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=7498
+TopLine=15
+Cursor=1575
 
 [Frame3]
 Flags=0
@@ -64,9 +64,9 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1421
-NormalPos.bottom=745
+NormalPos.top=26
+NormalPos.right=1379
+NormalPos.bottom=397
 Class=LaTeXView
 Document=Method.tex
 
@@ -76,5 +76,5 @@ Cursor=61
 
 [SessionInfo]
 FrameCount=4
-ActiveFrame=3
+ActiveFrame=2
 
