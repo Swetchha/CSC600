@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  12 NOV 2020 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  12 NOV 2020 17:58
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -567,19 +567,19 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <7> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 47.
 ) (Precon3.tex) (Method.tex) (Field.tex [2]
-Underfull \vbox (badness 6927) has occurred while \output is active []
+Underfull \vbox (badness 2689) has occurred while \output is active []
 
  [3]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 166.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 168.
 
 (C:\Users\swetchha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 166.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 168.
 
 (C:\Users\swetchha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (Local.tex) [4] (Package.tex)
+)) (Local.tex [4]) (Package.tex)
 (CSC600_paper.bbl
 Underfull \hbox (badness 1769) in paragraph at lines 25--27
 []\OT1/ptm/m/n/8 M. Fowler, \OT1/ptm/m/it/8 Refac-tor-ing: Im-prov-ing the De-sign of Ex-ist-ing Code\OT1/ptm/m/n/8 .
@@ -608,9 +608,9 @@ Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 11955 strings out of 480790
- 183017 string characters out of 2895894
- 733356 words of memory out of 3000000
+ 11961 strings out of 480790
+ 183113 string characters out of 2895894
+ 722356 words of memory out of 3000000
  27310 multiletter control sequences out of 15000+200000
  571594 words of font info for 96 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -622,9 +622,9 @@ Data/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchh
 pe1/urw/times/utmb8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swe
 tchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (5 pages, 186113 bytes).
+Output written on CSC600_paper.pdf (5 pages, 186985 bytes).
 PDF statistics:
- 636 PDF objects out of 1000 (max. 8388607)
- 423 named destinations out of 1000 (max. 500000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 429 named destinations out of 1000 (max. 500000)
  129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

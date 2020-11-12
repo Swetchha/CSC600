@@ -70,6 +70,7 @@ As shown in Fig. \ref{figure:sameBlock}(a), the output is `0'. However, after we
 class A{
 
    int x = 0;
+	
    void m(int y){
       System.out.print(x);
    }
@@ -88,6 +89,7 @@ class A{
 class A{
 
    int y = 0;
+	
    void m(int y){
       System.out.print(y);
    }
@@ -174,12 +176,14 @@ public class A {
    public int i = 0;
 	
    public static void main(String[] args){
+	
       B b = new B();
       System.out.print(b.i); // Outputs 0
    }
 }
 
 class B extends A {
+
    private int j = 1;
 }
 \end{lstlisting}
@@ -193,12 +197,14 @@ public class A {
    public int i = 0;
 	
    public static void main(String[] args){
+	
       B b = new B();
       System.out.print(b.i); // Error
    }
 }
 
 class B extends A {
+
    private int i = 1;
 }
 \end{lstlisting}
