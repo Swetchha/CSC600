@@ -1,3 +1,56 @@
 \section{\textbf{Preconditions of Rename Method Refactoring}}
 
 Rename Method Refactoring (RmR) changes the name of the method and all references to that method to the new name without changing its functionality in the program.
+
+There are 3 types of Rename Method Refactorings:
+\begin{enumerate}
+\item Rename Static Method Declarations.
+\item Rename Non-static Method Declarations.
+\item Rename Constructor Method Declarations.
+\end{enumerate}
+
+Same situation for each method: the target method can not be duplicate of an existing method after rename. If we use the same name of an existing method for RmR like Fig. \ref{fig:RmR}, the compiler will show the error: \textsl{method n() is already defined in class A.}
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void m(int a) {	
+  }
+
+  void n(int b) {	
+  }	
+}
+ 
+\end{lstlisting}
+\centering{(a) Before RmR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void n(int a) {	
+  }
+
+  void n(int b) {	
+  }	
+}
+
+\end{lstlisting}
+\centering{(b) After RmR}
+\end{minipage}
+\caption{\textbf{Example of RmR}}
+\label{fig:RmR}
+\end{figure}
+
+To understand the above precondition, we should know what exactly is duplicate method.
+
+By Definition of duplicate method, there are following properties:
+1) The method should have same name.
+2) Same Parameter types in order
+3) Same number of function parameters
+
+For example like Fig. \ref{fig:RmR}, there are method \textsl{m} and method \textsl{n} with same input parameters but different method names. If we do RmR for m to n, the compiler will show the error: \textsl{method n() is already defined in class A.} The behavior of the code does not remain the same after doing RmR. Hence, we have to check the target method name can not be the same as the existing method.
