@@ -85,12 +85,13 @@ Suppose a local variable has the same name as one of the field variable(instance
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
+
     public int i = 2;
     
     public void display() {
       int j = 1;
       System.out.println(j); 		
-}
+   }
 
     public static void main(String args[]) {
     
@@ -105,12 +106,13 @@ public class B {
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
+
     public int i = 2;
     
     public void display() {
       int i = 1;
       System.out.println(i); 		
-}
+   }
 
     public static void main(String args[]) {
     
@@ -134,6 +136,7 @@ For Example, from Fig. \ref{figure:precond5_4}, the field variable  in parent cl
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
+
     int i = 1;
 
     public void m1() {
@@ -143,10 +146,12 @@ public class B {
 }
 
 class C extends B {
+
     int k = 3;
 }
 
 public class Main {
+
     public static void main(String args[]) {
   
        B b = new B();
@@ -156,11 +161,13 @@ public class Main {
    }
 }
 \end{lstlisting}
+\centering(b) Before 
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class B {
+
     int i = 1;
 
     public void m1() {
@@ -170,10 +177,12 @@ public class B {
 }
 
 class C extends B {
+
     int i = 3;
 }
 
 public class Main {
+
     public static void main(String args[]) {
   
        B b = new B();
