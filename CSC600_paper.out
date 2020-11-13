@@ -5,12 +5,15 @@
 \BOOKMARK [2][-]{subsection.3.2}{The target class cannot be duplicate with any imported class from different package after rename.}{section.3}% 5
 \BOOKMARK [2][-]{subsection.3.3}{The target class file name cannot be duplicate with any existing java file name within same package after rename.}{section.3}% 6
 \BOOKMARK [1][-]{section.4}{Preconditions of Rename Method Refactoring}{}% 7
-\BOOKMARK [1][-]{section.5}{Preconditions of Rename Field Refactoring}{}% 8
-\BOOKMARK [2][-]{subsection.5.1}{The target name of field cannot be duplicate with any existing field within same class after rename.}{section.5}% 9
-\BOOKMARK [2][-]{subsection.5.2}{The target name of field cannot be duplicate with any local variable within same method after rename.}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.3}{The duplicate field variable in a child class cannot reduce visibility.}{section.5}% 11
-\BOOKMARK [1][-]{section.6}{Preconditions of Rename Local Variable Refactoring}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}{section.6}% 13
-\BOOKMARK [2][-]{subsection.6.2}{The renamed local variable must not result in variable shadowing.}{section.6}% 14
-\BOOKMARK [1][-]{section.7}{Preconditions of Rename Package Refactoring}{}% 15
-\BOOKMARK [1][-]{section*.1}{References}{}% 16
+\BOOKMARK [2][-]{subsection.4.1}{The target method can not be duplicate of an existing method after rename. }{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{A duplicate method in a child class cannot have different return type.}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{A duplicate method in a child class cannot reduce visibility.}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Preconditions of Rename Field Refactoring}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{The target name of field cannot be duplicate with any existing field within same class after rename.}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{The target name of field cannot be duplicate with any local variable within same method after rename.}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.3}{The duplicate field variable in a child class cannot reduce visibility.}{section.5}% 14
+\BOOKMARK [1][-]{section.6}{Preconditions of Rename Local Variable Refactoring}{}% 15
+\BOOKMARK [2][-]{subsection.6.1}{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.2}{The renamed local variable must not result in variable shadowing.}{section.6}% 17
+\BOOKMARK [1][-]{section.7}{Preconditions of Rename Package Refactoring}{}% 18
+\BOOKMARK [1][-]{section*.1}{References}{}% 19
