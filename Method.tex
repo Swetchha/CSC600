@@ -66,6 +66,100 @@ For example like Fig. \ref{fig:RmR}, there are method \textsl{m} and method \tex
 
 \subsection{A duplicate method in a child class cannot have different return type.}
 
+Java does not allow methods with the same signature to have different return types.
+
+In Fig. \ref{fig:RmR2} (a), A.m1() and B.m2() are two non-duplicate methods which can be rename refactored. However, in Fig. \ref{fig:RmR2} (b), after doing RmR from B.m2() to B.m1(), we get compile-error because the duplicate method m1 have different return types which is not allowed. Thus, we need to check this precondition before doing RmR to avoid compile errors.
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void m1() {
+		System.out.print ("Hello");
+  }
+}
+class B extends A{
+ 
+	int m2() {
+		System.out.print ("Bye");
+  }	
+}
+ 
+\end{lstlisting}
+\centering{(a) Before RmR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+cclass A {
+
+  void m1() {
+		System.out.print ("Hello");
+  }
+}
+class B extends A{
+ 
+	int m1() {
+		System.out.print ("Bye");
+  }	
+}
+
+\end{lstlisting}
+\centering{(b) After RmR}
+\end{minipage}
+\caption{\textbf{Example of RmR to duplicate methods with different return types}}
+\label{fig:RmR2}
+\end{figure}
 
 \subsection{A duplicate method in a child class cannot reduce visibility.}
 
+The use of access modifiers helps with visible duplicate methods, however, there is a proper hierarchy for access modifiers to be followed for duplicate methods.
+
+\textbf{public} > \textbf{protected} > \textbf{package-public} > \textbf{private}
+
+As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced to private for duplicate methods m1(). We also need to chech this precondition before doing RmR to the duplicate methods.
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void m1() {
+		System.out.print ("Hello");
+  }
+}
+class B extends A{
+ 
+	private void m2() {
+		System.out.print ("Bye");
+  }	
+}
+ 
+\end{lstlisting}
+\centering{(a) Before RmR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+cclass A {
+
+  void m1() {
+		System.out.print ("Hello");
+  }
+}
+class B extends A{
+ 
+	private void m1() {
+		System.out.print ("Bye");
+  }	
+}
+
+\end{lstlisting}
+\centering{(b) After RmR}
+\end{minipage}
+\caption{\textbf{Example of RmR to duplicate methods with reduced visibility}}
+\label{fig:RmR3}
+\end{figure}
