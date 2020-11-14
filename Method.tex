@@ -72,18 +72,18 @@ In Fig. \ref{fig:RmR2} (a), A.m1() and B.m2() are two non-duplicate methods whic
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.45\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-		System.out.print ("Hello");
+    System.out.print ("Hello");
   }
 }
 class B extends A{
  
-	int m2() {
-		System.out.print ("Bye");
+  int m2() {
+    System.out.print ("Bye");
   }	
 }
  
@@ -91,25 +91,25 @@ class B extends A{
 \centering{(a) Before RmR}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.45\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 cclass A {
 
   void m1() {
-		System.out.print ("Hello");
+    System.out.print ("Hello");
   }
 }
 class B extends A{
  
-	int m1() {
-		System.out.print ("Bye");
+  int m1() {
+    System.out.print ("Bye");
   }	
 }
 
 \end{lstlisting}
 \centering{(b) After RmR}
 \end{minipage}
-\caption{\textbf{Example of RmR to duplicate methods with different return types}}
+\caption{\textbf{Duplicate methods with different return types}}
 \label{fig:RmR2}
 \end{figure}
 
@@ -123,18 +123,18 @@ As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.45\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-		System.out.print ("Hello");
+    System.out.print ("Hello");
   }
 }
 class B extends A{
- 
-	private void m2() {
-		System.out.print ("Bye");
+
+  private void m2() {
+    System.out.print ("Bye");
   }	
 }
  
@@ -142,24 +142,24 @@ class B extends A{
 \centering{(a) Before RmR}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.45\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 cclass A {
 
   void m1() {
-		System.out.print ("Hello");
+    System.out.print ("Hello");
   }
 }
 class B extends A{
  
-	private void m1() {
-		System.out.print ("Bye");
+  private void m1() {
+    System.out.print ("Bye");
   }	
 }
 
 \end{lstlisting}
 \centering{(b) After RmR}
 \end{minipage}
-\caption{\textbf{Example of RmR to duplicate methods with reduced visibility}}
+\caption{\textbf{Duplicate methods with reduced visibility}}
 \label{fig:RmR3}
 \end{figure}
