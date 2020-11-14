@@ -11,8 +11,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1027
-NormalPos.bottom=539
+NormalPos.right=1164
+NormalPos.bottom=787
 Class=LaTeXView
 Document=CSC600_paper.tex
 
