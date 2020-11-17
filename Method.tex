@@ -16,7 +16,9 @@ There are certain preconditions required for RmR which are applicable to each ty
 	\item A duplicate method in a child class cannot reduce visibility.
 \end{enumerate}
 
-\subsection {The target method can not be duplicate of an existing method after rename. }
+\subsection {The target method cannot be duplicate of an existing method after rename. }
+
+From Fig. \ref{fig:RmR}, we have method \textsl{m} and method \textsl{n} with same input parameters but different method names. If we do RmR for m to n, the compiler will show the error: \textsl{method n() is already defined in class A.} The behavior of the code does not remain the same after doing RmR. Hence, we have to check the target method name can not be the same as the existing method.
 
 If we use the same name of an existing method for RmR like Fig. \ref{fig:RmR}, the compiler will show the error: \textsl{method n() is already defined in class A.}
 
@@ -62,7 +64,137 @@ By Definition of duplicate method, there are following properties:
 2) Same Parameter types in order
 3) Same number of function parameters
 
-For example like Fig. \ref{fig:RmR}, there are method \textsl{m} and method \textsl{n} with same input parameters but different method names. If we do RmR for m to n, the compiler will show the error: \textsl{method n() is already defined in class A.} The behavior of the code does not remain the same after doing RmR. Hence, we have to check the target method name can not be the same as the existing method.
+To derive the definition of Duplicate methods, there are certain use-cases to be considered. Some of them are as follows:
+
+\subsubsection.{Duplicate Methods with convertible Input parameters / Argument ambiguity.}
+
+From Fig. \ref{fig:RmR4},we have 2 methods m1 and m2 , m1 has input parameter `int' and m2 has input parameter `double', if we call m2 with integer as the input, m2 internally typecasts the passed integer into double and displays the output bye as shown in Fig. \ref{fig:RmR4}(a). If we RmR m2 to m1 and then pass integer as input then the output will be ”hello” as shown in Fig. \ref{fig:RmR4}(b).
+
+In Java we have type conversion of a smaller type to a larger type size automatically.
+
+byte < short < char < int < float < double
+
+When the duplicate functions has the larger type size and smaller type is passed then it automatically gets converted to larger type size.The revised rule should be that Duplicate functions can have the different datatype but the property of Widening or Automatic Type Conversion has to be taken care of.
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void m1(int i) {	
+    System.out.println("hello");
+  }
+
+  void m2(double i) {	
+     System.out.println("bye");
+  }	
+  
+  public static void main(String[] args){
+     A a = new A();
+     a.m2(100); // outputs bye
+  }
+}
+ 
+\end{lstlisting}
+\centering{(a) Before RmR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+class A {
+
+  void m1(int i) {	
+    System.out.println("hello");
+  }
+
+  void m1(double i) {	
+     System.out.println("bye");
+  }	
+  
+  public static void main(String[] args){
+     A a = new A();
+     a.m1(100); // outputs hello
+  }
+}
+
+\end{lstlisting}
+\centering{(b) After RmR}
+\end{minipage}
+\caption{\textbf{Duplicate Methods with convertible input parameter}}
+\label{fig:RmR4}
+\end{figure}
+
+\subsubsection.{Duplicate Methods with input parameters of same parent Class}
+
+From Fig. \ref{fig:RmR5}, we have 3 classes , Class A, Class B and Class C. Class C has methods m1 and m2 with input parameters of type Class A and B. If we call new C().m1(new B()), it displays the output as ``hello''. After RmR m1 to m2 and calling new C().m2(new B()) will display the output as bye. In both the methods we are calling input parameter of type class which is associated with same parent class A and the behavior of the output is different. 
+The revised rule should be that duplicate functions can have the parameters of type ‘class’ but it should not be associated with the same parent class.
+
+\begin{figure}[th]
+\centering
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+}
+
+class B extends A {
+}
+
+class C {
+
+   void m1(A a) {
+      System.out.println("hello");
+   }
+
+   void m2(B b) {
+      System.out.println("Bye");
+   }
+}
+public class Main {
+
+   public static void main(String[] args) {
+
+      new C().m1(new B()); //outputs hello
+
+   }
+}
+\end{lstlisting}
+\centering{(a) Before RmR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.8\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+public class A {
+}
+
+class B extends A {
+}
+
+class C {
+
+   void m2(A a) {
+      System.out.println("hello");
+   }
+
+   void m2(B b) {
+      System.out.println("Bye");
+   }
+}
+public class Main {
+
+   public static void main(String[] args) {
+
+      new C().m2(new B()); //outputs bye
+
+   }
+}
+
+\end{lstlisting}
+\centering{(b) After RmR}
+\end{minipage}
+\caption{\textbf{Duplicate Methods with input parameters of same parent Class}}
+\label{fig:RmR5}
+\end{figure}
 
 \subsection{A duplicate method in a child class cannot have different return type.}
 
@@ -119,7 +251,7 @@ The use of access modifiers helps with visible duplicate methods, however, there
 
 \textbf{public} > \textbf{protected} > \textbf{package-public} > \textbf{private}
 
-As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced to private for duplicate methods m1(). We also need to chech this precondition before doing RmR to the duplicate methods.
+As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced to private for duplicate methods m1(). We also need to check this precondition before doing RmR to the duplicate methods.
 
 \begin{figure}[th]
 \centering
