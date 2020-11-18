@@ -18,9 +18,16 @@ There are certain preconditions required for RmR which are applicable to each ty
 
 \subsection {The target method cannot be duplicate of an existing method after rename. }
 
-From Fig. \ref{fig:RmR}, we have method \textsl{m} and method \textsl{n} with same input parameters but different method names. If we do RmR for m to n, the compiler will show the error: \textsl{method n() is already defined in class A.} The behavior of the code does not remain the same after doing RmR. Hence, we have to check the target method name can not be the same as the existing method.
+If two or more methods have same method signature with
+below conditions, those methods will be called as duplicate
+methods.
+\begin{itemize}
+	\item Same method name
+	\item Same parameter types in order
+	\item Same number of parameters
+\end{itemize}
 
-If we use the same name of an existing method for RmR like Fig. \ref{fig:RmR}, the compiler will show the error: \textsl{method n() is already defined in class A.}
+From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the compiler produces an error ``\textsl{method n() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to check the target method name can not be the same as the existing method.
 
 \begin{figure}[th]
 \centering
@@ -36,7 +43,7 @@ class A {
 }
  
 \end{lstlisting}
-\centering{(a) Before RmR}
+\centering{(a) Before}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
@@ -51,48 +58,46 @@ class A {
 }
 
 \end{lstlisting}
-\centering{(b) After RmR}
+\centering{(b) After}
 \end{minipage}
-\caption{\textbf{Example of RmR}}
+\caption{\textbf{RmR from m to n}}
 \label{fig:RmR}
 \end{figure}
 
-To understand the above precondition, we should know what exactly is duplicate method.
+To further define the duplicate methods, few use-cases are as follows:
 
-By Definition of duplicate method, there are following properties:
-1) The method should have same name.
-2) Same Parameter types in order
-3) Same number of function parameters
+\subsubsection {Duplicate Methods with convertible Input parameters}
 
-To derive the definition of Duplicate methods, there are certain use-cases to be considered. Some of them are as follows:
+From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, m2 internally typecasts the passed int into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
 
-\subsubsection.{Duplicate Methods with convertible Input parameters / Argument ambiguity.}
-
-From Fig. \ref{fig:RmR4},we have 2 methods m1 and m2 , m1 has input parameter `int' and m2 has input parameter `double', if we call m2 with integer as the input, m2 internally typecasts the passed integer into double and displays the output bye as shown in Fig. \ref{fig:RmR4}(a). If we RmR m2 to m1 and then pass integer as input then the output will be ”hello” as shown in Fig. \ref{fig:RmR4}(b).
+When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the functionality and output has changed even with pre-checking condition for duplicate method. 	
+This implies that the definition for duplicate method is not precise and we need to revise duplicate methods to prevent these ambiguity.
 
 In Java we have type conversion of a smaller type to a larger type size automatically.
+\textbf{
+\begin{center}
+byte < short < int < float < double
+\end{center}
+}
 
-byte < short < char < int < float < double
-
-When the duplicate functions has the larger type size and smaller type is passed then it automatically gets converted to larger type size.The revised rule should be that Duplicate functions can have the different datatype but the property of Widening or Automatic Type Conversion has to be taken care of.
+When the duplicate methods have the larger type size and smaller type is passed then it can be converted to larger type size. The revised definition is that the duplicate methods can have the different data type but the property of Widening or Automatic Type Conversion has to be taken care of.
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1(int i) {	
-    System.out.println("hello");
+    System.out.print("hello");
   }
 
-  void m2(double i) {	
-     System.out.println("bye");
+  void m2(double j) {	
+     System.out.print("bye");
   }	
   
-  public static void main(String[] args){
-     A a = new A();
-     a.m2(100); // outputs bye
+  void main(String[] args){
+     this.m2(100); // Outputs bye
   }
 }
  
@@ -100,62 +105,49 @@ class A {
 \centering{(a) Before RmR}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1(int i) {	
-    System.out.println("hello");
+    System.out.print("hello");
   }
 
-  void m1(double i) {	
-     System.out.println("bye");
+  void m1(double j) {	
+     System.out.print("bye");
   }	
   
-  public static void main(String[] args){
-     A a = new A();
-     a.m1(100); // outputs hello
+  void main(String[] args){
+     this.m1(100); // Outputs hello
   }
 }
 
 \end{lstlisting}
-\centering{(b) After RmR}
+\centering{(b) After RmR from m2 to m1}
 \end{minipage}
 \caption{\textbf{Duplicate Methods with convertible input parameter}}
 \label{fig:RmR4}
 \end{figure}
 
-\subsubsection.{Duplicate Methods with input parameters of same parent Class}
-
-From Fig. \ref{fig:RmR5}, we have 3 classes , Class A, Class B and Class C. Class C has methods m1 and m2 with input parameters of type Class A and B. If we call new C().m1(new B()), it displays the output as ``hello''. After RmR m1 to m2 and calling new C().m2(new B()) will display the output as bye. In both the methods we are calling input parameter of type class which is associated with same parent class A and the behavior of the output is different. 
-The revised rule should be that duplicate functions can have the parameters of type ‘class’ but it should not be associated with the same parent class.
+\subsubsection {Non-Duplicate methods Ambiguity} 
+From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hello'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,double) in A and method m1(Object,int) in A match''}. 
 
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class A {
-}
+class A{
 
-class B extends A {
-}
-
-class C {
-
-   void m1(A a) {
-      System.out.println("hello");
+   void m1(String s, double d){
+      System.out.print(s); // Outputs hello
    }
 
-   void m2(B b) {
-      System.out.println("Bye");
+   void m2(Object o, int i){
+      System.out.print(o);
    }
-}
-public class Main {
 
-   public static void main(String[] args) {
-
-      new C().m1(new B()); //outputs hello
-
+   void main(String[] args){
+      this.m1("hello", 1);
    }
 }
 \end{lstlisting}
@@ -164,43 +156,35 @@ public class Main {
 \hfill
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class A {
-}
+class A{
 
-class B extends A {
-}
-
-class C {
-
-   void m2(A a) {
-      System.out.println("hello");
+   void m1(String s, double d){
+      System.out.print(s); // Error
    }
 
-   void m2(B b) {
-      System.out.println("Bye");
+   void m1(Object o, int i){
+      System.out.print(o);
    }
-}
-public class Main {
 
-   public static void main(String[] args) {
-
-      new C().m2(new B()); //outputs bye
-
+   void main(String[] args){
+      this.m1("hello", 1);
    }
 }
 
 \end{lstlisting}
-\centering{(b) After RmR}
+\centering{(b) After RmR from m2 to m1}
 \end{minipage}
-\caption{\textbf{Duplicate Methods with input parameters of same parent Class}}
+\caption{\textbf{Arguement Ambiguity}}
 \label{fig:RmR5}
 \end{figure}
 
+Hence, it is essential to pre-check that the non-duplicate methods on RmR does not result in argument ambiguity.
+
 \subsection{A duplicate method in a child class cannot have different return type.}
 
-Java does not allow methods with the same signature to have different return types.
+If a duplicate method exists in both parent and child class, Java does not allow these duplicate methods to have different return types.
 
-In Fig. \ref{fig:RmR2} (a), A.m1() and B.m2() are two non-duplicate methods which can be rename refactored. However, in Fig. \ref{fig:RmR2} (b), after doing RmR from B.m2() to B.m1(), we get compile-error because the duplicate method m1 have different return types which is not allowed. Thus, we need to check this precondition before doing RmR to avoid compile errors.
+In Fig. \ref{fig:RmR2} (b), when we apply RmR from B.m2() to B.m1(), compiler produces an error \textsl{`` m1() in B cannot override m1() in A as return type int is not compatible with void''}. This is because the duplicate method m1 have different return types which is not allowed. 
 
 \begin{figure}[th]
 \centering
@@ -209,49 +193,53 @@ In Fig. \ref{fig:RmR2} (a), A.m1() and B.m2() are two non-duplicate methods whic
 class A {
 
   void m1() {
-    System.out.print ("Hello");
+    System.out.print("hello");
   }
 }
 class B extends A{
  
   int m2() {
-    System.out.print ("Bye");
+    System.out.print("bye");
   }	
 }
  
 \end{lstlisting}
-\centering{(a) Before RmR}
+\centering{(a) Before}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-cclass A {
+class A {
 
   void m1() {
-    System.out.print ("Hello");
+    System.out.print ("hello");
   }
 }
 class B extends A{
  
   int m1() {
-    System.out.print ("Bye");
+    System.out.print ("bye");
   }	
 }
 
 \end{lstlisting}
-\centering{(b) After RmR}
+\centering{(b) After}
 \end{minipage}
-\caption{\textbf{Duplicate methods with different return types}}
+\caption{\textbf{RmR from m2 to m}}
 \label{fig:RmR2}
 \end{figure}
 
 \subsection{A duplicate method in a child class cannot reduce visibility.}
 
-The use of access modifiers helps with visible duplicate methods, however, there is a proper hierarchy for access modifiers to be followed for duplicate methods.
+The use of access modifiers helps with visible duplicate methods, however there is a proper hierarchy for access modifiers to be followed for duplicate methods.
 
-\textbf{public} > \textbf{protected} > \textbf{package-public} > \textbf{private}
 
-As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced to private for duplicate methods m1(). We also need to check this precondition before doing RmR to the duplicate methods.
+\begin{center}
+\textbf{public $>$ protected $>$ package-public $>$ private}
+\end{center}
+
+
+As shown in \ref{fig:RmR3}(b), the package-public visibility gets reduced to private for duplicate methods m1() and compiler produces an error \textsl{``m1() in B cannot override m1() in A as attempting to assign weaker access privileges; was package''}. 
 
 \begin{figure}[th]
 \centering
@@ -260,13 +248,13 @@ As shown in \ref{fig:RmR3} (b), the package-public visibility can not be reduced
 class A {
 
   void m1() {
-    System.out.print ("Hello");
+    System.out.print ("hello");
   }
 }
 class B extends A{
 
   private void m2() {
-    System.out.print ("Bye");
+    System.out.print ("bye");
   }	
 }
  
@@ -276,22 +264,24 @@ class B extends A{
 \hfill
 \begin{minipage}[t]{0.7\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-cclass A {
+class A {
 
   void m1() {
-    System.out.print ("Hello");
+    System.out.print ("hello");
   }
 }
 class B extends A{
  
   private void m1() {
-    System.out.print ("Bye");
+    System.out.print ("bye");
   }	
 }
 
 \end{lstlisting}
-\centering{(b) After RmR}
+\centering{(b) After RmR from m2 to m1}
 \end{minipage}
 \caption{\textbf{Duplicate methods with reduced visibility}}
 \label{fig:RmR3}
 \end{figure}
+
+Therefore, it is essential to pre-check that new name of method does not result in visibility reduction. 
