@@ -88,6 +88,7 @@ public class A{
 \label{figure:nestedclass1}
 \end{figure}
 
+
 \textbf{Example 2:} In order to apply RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. 
 As shown in Fig. \ref{figure:nestedclass2}, when we use same name for outer class and inner class, the Java compiler produces an error \textit{``class M is already defined in package p''} for Fig. \ref{figure:nestedclass2}(a) and \textit{``class A is already defined in package p''} for Fig. \ref{figure:nestedclass2}(b).
 
@@ -118,7 +119,7 @@ public class A{
   class A{
   }
     
-  class N{
+  class N	
   }
 } 
 \end{lstlisting}
