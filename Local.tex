@@ -78,8 +78,6 @@ public class B {
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. For Example, from Fig. \ref{figure:precond5_3},  the class B has  field variable `i' with value 2 and a method (display()). In a method there is local variable `j' with value 1. After RvR from `j' to `i' , when we access the variable in the method, the local variable value will be printed shadowing the field variable.
-
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.8\linewidth}
@@ -126,6 +124,9 @@ public class B {
 \caption{\textbf{RvR from j to i results in variable shadowing}}
 \label{figure:precond5_3}
 \end{figure}
+
+
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, the class B has field variable `i' with value 2 and a method (display()). In a method there is local variable `j' with value 1. After RvR from `j' to `i' , when we access the variable in the method, the local variable value will be printed shadowing the field variable.
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
 For Example, from Fig. \ref{figure:precond5_4}, the field variable  in parent class B has variable `i' with value 1 and child class C has a variable `k' with value 3, local variable in method `m1' of class B has the  variable name as `j' with value 2.  Aft RvR from j to i and k to i ,when we try to access the variable `i' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.

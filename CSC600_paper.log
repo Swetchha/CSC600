@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  18 NOV 2020 17:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  18 NOV 2020 17:50
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -593,7 +593,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3]
 Underfull \vbox (badness 6125) has occurred while \output is active []
 
-) (Field.tex [4]) [5] (Local.tex) [6] (Package.tex)
+) (Field.tex [4]) [5] (Local.tex [6]) (Package.tex)
 (CSC600_paper.bbl
 Underfull \hbox (badness 1769) in paragraph at lines 25--27
 []\T1/ptm/m/n/8 M. Fowler, \T1/ptm/m/it/8 Refac-tor-ing: Im-prov-ing the De-sign of Ex-ist-ing Code\T1/ptm/m/n/8 .
@@ -611,20 +611,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
  (CSC600_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
 Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 0FBA6CF3EDA12F4422B14A038E95E27A;2230.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 101.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
  ) 
 Here is how much of TeX's memory you used:
  12437 strings out of 480790
  188870 string characters out of 2895894
- 737760 words of memory out of 3000000
+ 725760 words of memory out of 3000000
  27604 multiletter control sequences out of 15000+200000
  649599 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -637,7 +637,7 @@ ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTe
 sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/M
 iKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on CSC600_paper.pdf (7 pages, 236772 bytes).
+Output written on CSC600_paper.pdf (7 pages, 236925 bytes).
 PDF statistics:
  881 PDF objects out of 1000 (max. 8388607)
  597 named destinations out of 1000 (max. 500000)
