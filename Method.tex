@@ -60,20 +60,20 @@ class A {
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
-\caption{\textbf{RmR from m to n}}
+\caption{\textbf{Rename from m to n}}
 \label{fig:RmR}
 \end{figure}
 
-To further define the duplicate methods, few use-cases are as follows:
+To further define the duplicate methods, some of the use-cases are as follows:
 
 \subsubsection {Duplicate Methods with convertible Input parameters}
 
-From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, m2 internally typecasts the passed int into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
+From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, int automatically and implicitly type-casted by java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
 
-When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the functionality and output has changed even with pre-checking condition for duplicate method. 	
-This implies that the definition for duplicate method is not precise and we need to revise duplicate methods to prevent these ambiguity.
+When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the original output has changed even with pre-checking condition for duplicate method. 	
+This implies that the definition for duplicate method is not precise and we need to revise duplicate methods to prevent coercion.
 
-In Java we have type conversion of a smaller type to a larger type size automatically.
+Below are primitive type coercions (i.e., implicit type conversions).  Java allows to convert primitive types without losing information about a numeric value. 
 \textbf{
 \begin{center}
 byte < short < int < float < double
@@ -84,12 +84,12 @@ When the duplicate methods have the larger type size and smaller type is passed 
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1(int i) {	
-    System.out.print("hello");
+    System.out.print("hi");
   }
 
   void m2(double j) {	
@@ -97,20 +97,21 @@ class A {
   }	
   
   void main(String[] args){
-     this.m2(100); // Outputs bye
+     // Outputs bye
+     this.m2(100); 
   }
 }
  
 \end{lstlisting}
-\centering{(a) Before RmR}
+\centering{(a) Before}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1(int i) {	
-    System.out.print("hello");
+    System.out.print("hi");
   }
 
   void m1(double j) {	
@@ -118,63 +119,66 @@ class A {
   }	
   
   void main(String[] args){
-     this.m1(100); // Outputs hello
+     // Outputs hi
+     this.m1(100); 
   }
 }
 
 \end{lstlisting}
-\centering{(b) After RmR from m2 to m1}
+\centering{(b) After}
 \end{minipage}
-\caption{\textbf{Duplicate Methods with convertible input parameter}}
+\caption{\textbf{Rename from m2 to m1}}
 \label{fig:RmR4}
 \end{figure}
 
 \subsubsection {Non-Duplicate methods Ambiguity} 
-From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hello'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,double) in A and method m1(Object,int) in A match''}. 
+From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hi'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,float) in A and method m1(Object,int) in A match''}. 
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.48\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A{
 
-   void m1(String s, double d){
-      System.out.print(s); // Outputs hello
+  void m1(String s, float d){
+      // Outputs hello
+      System.out.print(s); 
    }
 
-   void m2(Object o, int i){
+  void m2(Object o, int i){
       System.out.print(o);
    }
 
-   void main(String[] args){
-      this.m1("hello", 1);
+  void main(String[] args){
+      this.m1("hi", 1);
    }
 }
 \end{lstlisting}
-\centering{(a) Before RmR}
+\centering{(a) Before }
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.48\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A{
 
-   void m1(String s, double d){
-      System.out.print(s); // Error
+  void m1(String s, float d){
+      // Error
+      System.out.print(s); 
    }
 
-   void m1(Object o, int i){
+  void m1(Object o, int i){
       System.out.print(o);
    }
 
-   void main(String[] args){
-      this.m1("hello", 1);
+  void main(String[] args){
+      this.m1("hi", 1);
    }
 }
 
 \end{lstlisting}
-\centering{(b) After RmR from m2 to m1}
+\centering{(b) After }
 \end{minipage}
-\caption{\textbf{Arguement Ambiguity}}
+\caption{\textbf{Rename from m2 to m1}}
 \label{fig:RmR5}
 \end{figure}
 
@@ -188,12 +192,12 @@ In Fig. \ref{fig:RmR2} (b), when we apply RmR from B.m2() to B.m1(), compiler pr
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-    System.out.print("hello");
+    System.out.print("hi");
   }
 }
 class B extends A{
@@ -207,12 +211,12 @@ class B extends A{
 \centering{(a) Before}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-    System.out.print ("hello");
+    System.out.print ("hi");
   }
 }
 class B extends A{
@@ -225,7 +229,7 @@ class B extends A{
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
-\caption{\textbf{RmR from m2 to m}}
+\caption{\textbf{Rename from m2 to m1}}
 \label{fig:RmR2}
 \end{figure}
 
@@ -243,12 +247,12 @@ As shown in \ref{fig:RmR3}(b), the package-public visibility gets reduced to pri
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-    System.out.print ("hello");
+    System.out.print ("hi");
   }
 }
 class B extends A{
@@ -259,15 +263,15 @@ class B extends A{
 }
  
 \end{lstlisting}
-\centering{(a) Before RmR}
+\centering{(a) Before }
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.7\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
   void m1() {
-    System.out.print ("hello");
+    System.out.print ("hi");
   }
 }
 class B extends A{
@@ -278,9 +282,9 @@ class B extends A{
 }
 
 \end{lstlisting}
-\centering{(b) After RmR from m2 to m1}
+\centering{(b) After }
 \end{minipage}
-\caption{\textbf{Duplicate methods with reduced visibility}}
+\caption{\textbf{Rename from m2 to m1}}
 \label{fig:RmR3}
 \end{figure}
 
