@@ -40,7 +40,7 @@ public class B {
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{RvR from x to num}}
+\caption{\textbf{Rename from x to num}}
 \label{figure:precond5_1}
 \end{figure}
 
@@ -71,7 +71,7 @@ public class B {
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{RvR from x to y}}
+\caption{\textbf{Rename from x to y}}
 \label{figure:precond5_2}
 \end{figure}
 
@@ -94,7 +94,7 @@ public class B {
     public static void main(String args[]) {
     
       B b = new B();
-      b.display();	//Outputs 1
+      b.display();  //Outputs 1
    }
 }
 \end{lstlisting}
@@ -115,13 +115,13 @@ public class B {
     public static void main(String args[]) {
     
       B b = new B();
-      b.display();	//Outputs 1
+      b.display();  //Outputs 1
    }
 }
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{RvR from j to i results in variable shadowing}}
+\caption{\textbf{Rename from j to i }}
 \label{figure:precond5_3}
 \end{figure}
 
@@ -156,9 +156,10 @@ public class Main {
     public static void main(String args[]) {
   
        B b = new B();
-       b.m1(); 	// outputs 2
+       b.m1();     // outputs 2
        C c = new C();
-       c.m1(); 	// outputs 2
+       c.m1();     // outputs 2
+
    }
 }
 \end{lstlisting}
@@ -187,15 +188,15 @@ public class Main {
     public static void main(String args[]) {
   
        B b = new B();
-       b.m1(); 	// outputs 2
+       b.m1();   // outputs 2
        C c = new C();
-       c.m1(); 	// outputs 2
+       c.m1();   // outputs 2
    }
 }
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{RvR from j to i  and k to i results in variable shadowing}}
+\caption{\textbf{Rename from j to i  and k to i }}
 \label{figure:precond5_4}
 \end{figure}
 
