@@ -10,14 +10,11 @@ For example, if we run RcR on the class name from \textsl{A} to \textsl{B} as in
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-class A{
-}
+class A{}
 	
-class B{
-}
+class B{}
 
-class C{
-}
+class C{}
  
 \end{lstlisting}
 \centering{(a) Before}
@@ -27,14 +24,11 @@ class C{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-class B{
-}	
+class B{}	
 
-class B{
-}
+class B{}
 
-class C{
-}
+class C{}
 
 \end{lstlisting}
 \centering{(b) After}
@@ -44,47 +38,40 @@ class C{
 \end{figure}
 
 
-Furthermore, the same situation occurs in nested classes. The examples below show that for RcR we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{figure:nested}.
-
-\begin{figure}[th]
-\centering
-\begin{minipage}[t]{0.5\linewidth}
-\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-package p;
-
-public class A{	
-
-  class M{
-  }
-
-  class N{
-  }
-} 
-\end{lstlisting}
-\end{minipage}
-\caption{\textbf{Nested Class before RcR}}
-\label{figure:nested}
-\end{figure}
+Furthermore, the same situation occurs in nested classes. The examples below show that for RcR we can not use the same name either as inner or as outer class for nested classes like Fig. \ref{figure:nestedclass1}.
 
 \textbf{Example 1:} In order to apply RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. As shown in Fig. \ref{figure:nestedclass1}, when we run RcR on the inner class from M to N, the Java compiler produces an error \textit{``class A.N is already defined in class A''}. 
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.5\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
+package p;
+
+public class A{	
+  
+  class M{}
+	
+  class N{}
+} 
+\end{lstlisting}
+\centering{(a) Before RcR}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
 public class A{	
     
-  class N{
-  }
+  class N{}
     
-  class N{
-  }
+  class N{}
 } 
 \end{lstlisting}
+\centering{(b) After RcR Class M to N}
 \end{minipage}
-\caption{\textbf{Example 1 for Nested Class after RcR from M to N}}
+\caption{\textbf{Example 1 of Nested Class after Rename Class Refactoring}}
 \label{figure:nestedclass1}
 \end{figure}
 
@@ -100,11 +87,9 @@ package p;
 
 public class M{	
   
-  class M{
-  }
+  class M{}
 	
-  class N{
-  }
+  class N{}
 } 
 \end{lstlisting}
 \centering{(a) After RcR on Outer Class A to M}
@@ -116,11 +101,9 @@ package p;
 
 public class A{	
     
-  class A{
-  }
+  class A{}
     
-  class N	
-  }
+  class N{}
 } 
 \end{lstlisting}
 \centering{(b) After RcR on Inner Class M to A}
