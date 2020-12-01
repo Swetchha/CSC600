@@ -46,11 +46,13 @@
 \section{\textbf{Introduction}}
 \lettrine{R}{efactoring} is a controlled technique for improving the design of an existing code base. Its essence is applying a series of small behavior-preserving transformations, each of which ``too small to be worth doing''. However the cumulative effect of each of these transformations is quite significant. By doing them in small steps we reduce the risk of introducing errors. We also avoid having the system broken while carrying out the restructuring - which allows us to gradually refactor a system over an extended period of time.~\cite{Fowler}
 
-In simple words, refactoring is a behavior preserving code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - precondition checks and code changes. In this paper, we brief about the rename refactoring and explain the preconditions for each type of rename refactorings. 
+In simple words, refactoring is a behavior preserving code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - precondition checks and code changes. In this paper, we explain about the rename refactoring and the preconditions in detail for each type of rename refactorings. 
+
+The idea behind refactoring were introduced over decades ago, but scripting of refactorings is poorly suppported by current IDEs tools. Today’s IDEs lack fine-grained primitive refactorings including restrictive/imprecise preconditions and inconsistent code transformations. There are further more challenges for executing refactoring as it is error-prone, timeconsuming and laborious work. Scripting refactoring with current IDEs are too slow because precondition checks and AST operation takes largest time which makes scripting refactorings impractical. Therefore, we need tools that automate refactorings scripts with precise preconditions, high speed and reliability and which we may reuse frequently. 
 
 \section{\textbf{Rename Refactorings}}
 Rename Refactoring changes the name of identifiers in a program without changing the program's behavior.
-There are five types of Rename Refactoring in Java: 
+There are five types of Rename Refactoring in Java and each of them have different preconditions. 
 \begin{enumerate}
 	\item Rename Class Declarations 
 	\item Rename Method Declarations  
@@ -64,7 +66,7 @@ Rename Class Refactoring (RcR) changes the name of the class and all references 
 \begin{enumerate}
 	\item The target class cannot be duplicate with any existing class within same package after rename.
 	\item The target class cannot be duplicate with any imported class from different package after rename.
-	\item The target class file name cannot be duplicate with any existing java file name within same package after rename.
+	\item The target class name cannot be duplicate with any existing java file name within same package after rename.
 \end{enumerate}
 
 \input{Precon1}\label{sec:precon1}
