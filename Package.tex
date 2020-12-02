@@ -3,7 +3,7 @@ Rename Package Refactoring (RpR) changes the name of the package and all referen
 
 For Rename Package Refactoring (RpR), we can not use duplicate package name within the same source folder. However, we can run RpR with same package name from different Java folders.
 
-For example, we assume that there are two packages in one source folder like Fig. \ref{fig:RpR}, we can not run RpR on package p to q since package q is already exist in the same source folder. 
+For example, we assume that there are two packages in one source folder like Fig. \ref{fig:RpR}, we can not run RpR on package q to p since package p is already exist in the same source folder. 
 
 \begin{figure}[th]
 \centering
@@ -11,11 +11,9 @@ For example, we assume that there are two packages in one source folder like Fig
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-class A{
-}
+class A{}
 	
-class B{
-}
+class B{}
  
 \end{lstlisting}
 \centering{(a) package p}
@@ -25,16 +23,14 @@ class B{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package q;
 
-class M{
-}	
+class M{}	
 
-class N{
-}
+class N{}
 
 
 \end{lstlisting}
 \centering{(b) package q}
 \end{minipage}
-\caption{\textbf{Example of RpR}}
+\caption{\textbf{Example of Rename Refactoring Package q to p}}
 \label{fig:RpR}
 \end{figure}
