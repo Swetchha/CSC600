@@ -136,31 +136,21 @@ For Example, from Fig. \ref{figure:precond5_4}, the field variable  in parent cl
 \centering
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+public class A {
 
     int i = 1;
 
-    public void m1() {
-      int j = 2;
-      System.out.println(j);
-   }
-}
-
-class C extends B {
-
-    int k = 3;
-}
-
-public class Main {
-
     public static void main(String args[]) {
-  
-       B b = new B();
-       b.m1();     // outputs 2
-       C c = new C();
-       c.m1();     // outputs 2
+        B b = new B(); 
+    }
+}
 
-   }
+class B extends A {
+    B() {
+    	
+        int j = 2;
+        System.out.println(i); // Output: 1
+    }
 }
 \end{lstlisting}
 \centering(b) Before 
@@ -168,35 +158,26 @@ public class Main {
 \hfill
 \begin{minipage}[t]{0.8\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+public class A {
 
     int i = 1;
 
-    public void m1() {
-      int i = 2;
-      System.out.println(i);
-   }
-}
-
-class C extends B {
-
-    int i = 3;
-}
-
-public class Main {
-
     public static void main(String args[]) {
-  
-       B b = new B();
-       b.m1();   // outputs 2
-       C c = new C();
-       c.m1();   // outputs 2
-   }
+        B b = new B(); 
+    }
+}
+
+class B extends A {
+    B() {
+    	
+        int i = 2;
+        System.out.println(i); // Output: 2
+    }
 }
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variables j to i  and k to i }}
+\caption{\textbf{Rename Refactoring Variables j to i}}
 \label{figure:precond5_4}
 \end{figure}
 
