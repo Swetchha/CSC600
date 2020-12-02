@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=CSC600_paper.tex
 
 [Frame0_View0,0]
-TopLine=76
+TopLine=67
 Cursor=4120
 
 [Frame1]
@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=Precon3.tex
 
 [Frame4_View0,0]
-TopLine=46
+TopLine=47
 Cursor=918
 
 [Frame5]
