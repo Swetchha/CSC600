@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=CSC600_paper.tex
 
 [Frame0_View0,0]
-TopLine=70
+TopLine=68
 Cursor=4118
 
 [Frame1]
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=Method.tex
 
 [Frame1_View0,0]
-TopLine=287
-Cursor=7401
+TopLine=243
+Cursor=7632
 
 [Frame2]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Field.tex
 
 [Frame2_View0,0]
-TopLine=83
-Cursor=3832
+TopLine=55
+Cursor=2814
 
 [Frame3]
 Flags=0
@@ -90,7 +90,7 @@ Document=Precon3.tex
 
 [Frame4_View0,0]
 TopLine=48
-Cursor=918
+Cursor=1927
 
 [Frame5]
 Flags=0
@@ -108,9 +108,27 @@ Document=Local.tex
 
 [Frame5_View0,0]
 TopLine=0
-Cursor=4601
+Cursor=1212
+
+[Frame6]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1379
+NormalPos.bottom=459
+Class=LaTeXView
+Document=Precon2.tex
+
+[Frame6_View0,0]
+TopLine=0
+Cursor=605
 
 [SessionInfo]
-FrameCount=6
-ActiveFrame=2
+FrameCount=7
+ActiveFrame=5
 

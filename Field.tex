@@ -1,6 +1,7 @@
 \section{\textbf{Preconditions of Rename Field Refactoring}}
-Rename Field Refactoring (RfR) changes the declaration and references to the field variables to the new name without changing its behavior.
 Fields are the variables of a class i.e. instance variables and static variables.
+
+Rename Field Refactoring (RfR) changes the declaration and references to the field variables to the new name without changing its behavior.
 There are certain preconditions required for RfR.
 
 \begin{enumerate}
@@ -11,7 +12,7 @@ There are certain preconditions required for RfR.
 
 \subsection{The target name of field cannot be duplicate with any existing field within same class after rename.}
 
-In order to apply RfR we have to pre-check that the new name of the field is not duplicate with any existing field name of any data type within same class. As shown in Fig. \ref{figure:field}(b), when we apply RfR from \emph{`j' to `i'}, Java compiler produces an error \textit{``variable i is already defined in class A''}. This is because of the conflict for duplicate names for field variables. As shown in Fig. \ref{figure:field}(c), when we apply RfR from \emph{`s' to `i'}, Java compiler produces an error \textit{``variable i is already defined in class A''}. 
+In order to apply RfR we have to pre-check that the new name of the field is not duplicate with any existing field name of any data type within same class. From Fig. \ref{figure:field}(a), when we apply RfR from \emph{`j' to `i'} as shown in Fig. \ref{figure:field}(b), Java compiler produces an error \textit{``variable i is already defined in class A''}. This is because of the conflict for duplicate names for field variables. Similarly when we apply RfR from \emph{`s' to `i'} as shown in Fig. \ref{figure:field}(c), Java compiler produces an error \textit{``variable i is already defined in class A''}. 
 
 \begin{figure}[th]
 \centering	
@@ -60,7 +61,7 @@ class A {
 \subsection{The target name of field cannot be duplicate with any local variable within same method after rename.}
 In order to apply RfR we have to pre-check that the new name of field is not duplicate with any local variable name, if field is being used in the same block as local variable. 
 
-As shown in Fig. \ref{figure:sameBlock}(a), the output is `0'. However, after we apply RfR from \emph{`x' to `y'} as shown in Fig. \ref{figure:sameBlock}(b), the output is `1'. Although the Java compiler have not produced any error but the behavior of code has changed since the output after RfR has changed. This is because if a field variable and a local variable have the same name, then the local variable will be accessed. This process effectively shadows the field variable and therefore known as \textit{Variable Shadowing}. Therefore, it is essential to pre-check that the new name of field is not duplicate with any existing local variable if both are used in same block.
+As shown in Fig. \ref{figure:sameBlock}(a), the output is `0'. However, after we apply RfR from $x$ to $y$ as shown in Fig. \ref{figure:sameBlock}(b), the output is `1'. Although the Java compiler do not produce any error but the behavior of code has changed since the output after RfR has changed. This is because if a field variable and a local variable have the same name, then the local variable will be accessed. This process effectively shadows the field variable and therefore known as \textit{Variable Shadowing}. Therefore, it is essential to pre-check that the new name of field is not duplicate with any existing local variable if both are used in same block.
  
 
 \begin{figure}[th]
@@ -111,7 +112,7 @@ class A{
 \label{figure:sameBlock}
 \end{figure}
 
-The same concept is applied to class hierarchies. A field variable declared within a parent class will be shadowed by any variable with the same name in a child class. As shown in Fig. \ref{figure:classEx}(a), the output is `0'. However, after we apply RfR on field variable of a child class from j to i as shown in Fig. \ref{figure:classEx}(b), the output is `1'. This Variable Shadowing has changed the original behavior of the program after RfR. 
+The same concept is applied to class hierarchies. A field variable declared within a parent class will be shadowed by any variable with the same name in a child class. As shown in Fig. \ref{figure:classEx}(a), the output is `0'. However, after we apply RfR on field variable of a child class from $j$ to $i$ as shown in Fig. \ref{figure:classEx}(b), the output is `1'. This Variable Shadowing has changed the original behavior of the program after RfR. 
 
 \begin{figure}[th]
 \centering
@@ -178,16 +179,18 @@ The child class variables are able to reduce the visibility of the parent class 
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.75\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class A {
+class A {
 
    public int i = 0;
 	
-   public static void main(String[] args){
+   void main(String[] args){
 	
       B b = new B();
-      System.out.print(b.i); // Output: 0
+      
+      // Output: 0
+      System.out.print(b.i); 
    }
 }
 
@@ -199,16 +202,18 @@ class B extends A {
 \centering{(a) Before}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.75\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class A {
+class A {
 
    public int i = 0;
 	
-   public static void main(String[] args){
+   void main(String[] args){
 	
       B b = new B();
-      System.out.print(b.i); // Error
+      
+      // Error
+      System.out.print(b.i); 
    }
 }
 
@@ -217,13 +222,13 @@ class B extends A {
    private int i = 1;
 }
 \end{lstlisting}
-\centering{(b) After Rename Refactoring on child class field j to i}
+\centering{(b) After}
 \end{minipage}
-\caption{\textbf{Visibility reduction not allowed}}
+\caption{\textbf{Rename Refactoring on child class field j to i}}
 \label{figure:jtoi}
 \end{figure}
 
 
-As shown in Fig. \ref{figure:jtoi}(a), the two field variables `i' and `j' are completely distinct and have completely separate visibilities in different classes. However, on applying RfR on child class variable from `j' to `i' as shown in Fig. \ref{figure:jtoi}(b), the public visibility of field variable `i' gets reduced to private and Java compiler produces an error ``field B.i is not visible''. 
+As shown in Fig. \ref{figure:jtoi}(a), the two field variables $i$ and $j$ are completely distinct and have completely separate visibilities in different classes. However, on applying RfR on child class variable from $j$ to $i$ as shown in Fig. \ref{figure:jtoi}(b), the public visibility of field variable $i$ gets reduced to private and Java compiler produces an error \textit{``field B.i is not visible''}. 
 
 Therefore, it is essential to pre-check that the new name of the field variable does not result in visibility reduction. 
