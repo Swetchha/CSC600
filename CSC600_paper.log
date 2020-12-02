@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 DEC 2020 23:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  1 DEC 2020 23:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -687,27 +687,24 @@ Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
- 12422 strings out of 480608
- 185642 string characters out of 5903631
- 754378 words of memory out of 5000000
- 27480 multiletter control sequences out of 15000+600000
- 649599 words of font info for 136 fonts, out of 8000000 for 9000
+ 12402 strings out of 480790
+ 188374 string characters out of 2895894
+ 731601 words of memory out of 3000000
+ 27600 multiletter control sequences out of 15000+200000
+ 649599 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,48p,745b,1380s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
-ive/2020/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/u
-tmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
->
-Output written on CSC600_paper.pdf (7 pages, 157145 bytes).
+ 41i,8n,48p,747b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/swetchha/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy7.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/swetch
+ha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fon
+ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/U
+sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/M
+iKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on CSC600_paper.pdf (7 pages, 233407 bytes).
 PDF statistics:
- 878 PDF objects out of 1000 (max. 8388607)
- 851 compressed objects within 9 object streams
- 585 named destinations out of 1000 (max. 500000)
+ 845 PDF objects out of 1000 (max. 8388607)
+ 566 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
