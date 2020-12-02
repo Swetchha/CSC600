@@ -23,8 +23,8 @@ below conditions, those methods will be called as duplicate
 methods.
 \begin{itemize}
 	\item Same method name
-	\item Same parameter types in order
 	\item Same number of parameters
+	\item Same parameter types in order
 \end{itemize}
 
 From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the compiler produces an error ``\textsl{method n() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to check the target method name can not be the same as the existing method.
@@ -71,7 +71,7 @@ To further define the duplicate methods, some of the use-cases are as follows:
 From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, int automatically and implicitly type-casted by java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
 
 When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the original output has changed even with pre-checking condition for duplicate method. 	
-This implies that the definition for duplicate method is not precise and we need to revise duplicate methods to prevent coercion.
+This implies that the definition for duplicate method is not enough to rely on and we need to revise duplicate methods to prevent these ambiguity.
 
 Below are primitive type coercions (i.e., implicit type conversions).  Java allows to convert primitive types without losing information about a numeric value. 
 \textbf{
@@ -80,7 +80,7 @@ byte < short < int < float < double
 \end{center}
 }
 
-When the duplicate methods have the larger type size and smaller type is passed then it can be converted to larger type size. The revised definition is that the duplicate methods can have the different data type but the property of Widening or Automatic Type Conversion has to be taken care of.
+When the duplicate methods have the larger type size and smaller type is passed then it can be converted to larger type size. The revised definition is that the duplicate methods can have the different data type but the property of widening or automatic type conversion has to be taken care of.
 
 \begin{figure}[th]
 \centering
@@ -97,7 +97,8 @@ class A {
   }	
   
   void main(String[] args){
-     // Outputs bye
+	
+     // output: bye
      this.m2(100); 
   }
 }
@@ -119,7 +120,8 @@ class A {
   }	
   
   void main(String[] args){
-     // Outputs hi
+	
+     // output: hi
      this.m1(100); 
   }
 }
@@ -141,7 +143,8 @@ From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the
 class A{
 
   void m1(String s, float d){
-      // Outputs hello
+	
+      // output: hello
       System.out.print(s); 
    }
 
@@ -162,6 +165,7 @@ class A{
 class A{
 
   void m1(String s, float d){
+	
       // Error
       System.out.print(s); 
    }
