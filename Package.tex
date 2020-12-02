@@ -14,14 +14,27 @@ package p;
 class A{}
 	
 class B{}
- 
+
+
+package q;
+
+class M{}	
+
+class N{}
 \end{lstlisting}
-\centering{(a) package p}
+\centering{(a) Before}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-package q;
+package p;
+
+class A{}
+	
+class B{}
+
+
+package p;
 
 class M{}	
 
@@ -29,8 +42,8 @@ class N{}
 
 
 \end{lstlisting}
-\centering{(b) package q}
+\centering{(b)After}
 \end{minipage}
-\caption{\textbf{Example of Rename Refactoring Package q to p}}
+\caption{\textbf{Rename Refactoring Package q to p}}
 \label{fig:RpR}
 \end{figure}
