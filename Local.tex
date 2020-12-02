@@ -1,5 +1,5 @@
 \section{\textbf{Preconditions of Rename Local Variable Refactoring}}
-A local variable is a variable declared inside a method and it is only accessible inside the method that declared it
+A local variable is a variable declared inside a method and it is only accessible inside the method that declared it.
 
 Rename Local Variable Refactoring (RvR) changes the name of the local variable and all references to that variable to the new name without changing its behavior. There are certain preconditions required for RvR.
 \begin{enumerate}
@@ -9,7 +9,7 @@ Rename Local Variable Refactoring (RvR) changes the name of the local variable a
 
 \subsection{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}
  
-From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable `x' to `num' , the java compiler produces the error as ``variable num is already defined in method m1(int)''. Similarly we cannot run RvR on  `y'  to `num' or `x'  to `y' . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
+From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable `x' to `z' , the java compiler produces the error as ``variable z is already defined in method m1(int)''. Similarly we cannot run RvR on  `y'  to `z' or `x'  to `y' . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
 
 Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
 
@@ -19,7 +19,7 @@ Therefore, it is essential to pre-check that the target name of local variable s
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
-    void m1(int num) {
+    void m1(int z) {
        int x = 1; 
        int y = 2
     }
@@ -32,15 +32,15 @@ public class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
-    void m1(int num) {
-        int num = 1; 
+    void m1(int z) {
+        int z = 1; 
 	int y = 2;
     }
 }
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variable x to num}}
+\caption{\textbf{Rename Refactoring Variable x to z}}
 \label{figure:precond5_1}
 \end{figure}
 
@@ -50,7 +50,7 @@ public class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
-    void m1(int num) {
+    void m1(int z) {
        int x = 1; 
        int y = 2
     }
@@ -63,7 +63,7 @@ public class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
-    void m1(int num) {
+    void m1(int z) {
         int y = 1; 
 	int y = 2;
     }
@@ -124,14 +124,11 @@ class A{
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variable j to i }}
+\caption{\textbf{Rename Refactoring Variable y to x }}
 \label{figure:precond5_3}
 \end{figure}
 
 
-
-Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_4}, after RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
 
 \begin{figure}[th]
 \centering
@@ -188,5 +185,9 @@ class B extends A{
 \label{figure:precond5_4}
 \end{figure}
 
+
+
+Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
+For Example, from Fig. \ref{figure:precond5_4}, after RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
 
 Therefore, it is essential to pre-check that local variable must not result in variable shadowing after RvR.
