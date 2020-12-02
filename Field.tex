@@ -108,49 +108,47 @@ The same concept is applied to class hierarchies. A field variable declared with
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.75\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
    int i = 0;
+   
+   void main(String[] args){
+
+      B b = new B();
+	      
+      // Output: 0
+      System.out.print(b.i); 
+   }
 }
 
 class B extends A {
 
    int j = 1; 
 }
-
-public class C {
-
-   public static void main(String[] args){
-
-      B b = new B();
-      System.out.println(b.i); // Outputs 0
-   }
-}
 \end{lstlisting}
 \centering{(a) Before}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.75\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
    int i = 0;
+   
+   void main(String[] args){
+
+      B b = new B();
+	      
+      // Output: 1
+      System.out.print(b.i); 
+   }
 }
 
 class B extends A {
 
    int i = 1; 
-}
-
-public class C {
-
-   public static void main(String[] args){
-
-      B b = new B();
-      System.out.println(b.i); // Outputs 1
-   }
 }
 \end{lstlisting}
 \centering{(b) After }
@@ -182,7 +180,7 @@ public class A {
    public static void main(String[] args){
 	
       B b = new B();
-      System.out.print(b.i); // Outputs 0
+      System.out.print(b.i); // Output: 0
    }
 }
 
