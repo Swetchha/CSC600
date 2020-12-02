@@ -25,7 +25,7 @@ class A {
 }
 
 \end{lstlisting}
-\centering(a) Before RfR
+\centering(a) Before
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
@@ -37,7 +37,7 @@ class A {
    String s = "hi";
 }
 \end{lstlisting}
-\centering(b) After RfR from j to i
+\centering(b) After Rename Refactoring Field j to i
 \end{minipage}
 
 \centering
@@ -50,9 +50,9 @@ class A {
    String i = "hi";
 }
 \end{lstlisting}
-\centering(c) After RfR from s to i
+\centering(c) After Rename Refactoring Field s to i
 \end{minipage}
-\caption{\textbf{RfR on field variables}}
+\caption{\textbf{Rename Refactoring on field variables}}
 \label{figure:field}
 \end{figure}
 
@@ -100,7 +100,7 @@ class A{
 }\end{lstlisting}
 \centering(b) After
 \end{minipage}
-\caption{\textbf{RfR from x to y}}
+\caption{\textbf{Rename Refactoring Field x to y}}
 \label{figure:sameBlock}
 \end{figure}
 
@@ -155,7 +155,7 @@ public class C {
 \end{lstlisting}
 \centering{(b) After }
 \end{minipage}
-\caption{\textbf{RfR on child class field variable j to i}}
+\caption{\textbf{Rename Refactoring on child class field variable j to i}}
 \label{figure:classEx}
 \end{figure}
 
@@ -191,7 +191,7 @@ class B extends A {
    private int j = 1;
 }
 \end{lstlisting}
-\centering{(a) Before RcR on child class field j}
+\centering{(a) Before}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.75\linewidth}
@@ -212,7 +212,7 @@ class B extends A {
    private int i = 1;
 }
 \end{lstlisting}
-\centering{(b) After RcR on child class field j to i}
+\centering{(b) After Rename Refactoring on child class field j to i}
 \end{minipage}
 \caption{\textbf{Visibility reduction not allowed}}
 \label{figure:jtoi}
