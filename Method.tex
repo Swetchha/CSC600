@@ -27,7 +27,7 @@ methods.
 	\item Same parameter types in order
 \end{itemize}
 
-From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the compiler produces an error ``\textsl{method n() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to check the target method name can not be the same as the existing method.
+From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the Java compiler produces an error ``\textsl{method n() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to check the target method name can not be the same as the existing method.
 
 \begin{figure}[th]
 \centering
@@ -64,7 +64,7 @@ To further define the duplicate methods, some of the use-cases are as follows:
 
 \subsubsection {Duplicate Methods with convertible Input parameters}
 
-From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, int automatically and implicitly type-casted by java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
+From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, int automatically and implicitly type-casted by Java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
 
 When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the original output has changed even with pre-checking condition for duplicate method. 	
 This implies that the definition for duplicate method is not enough to rely on and we need to revise duplicate methods to prevent these ambiguity.
@@ -130,7 +130,7 @@ class A {
 \end{figure}
 
 \subsubsection {Non-Duplicate methods Ambiguity} 
-From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hi'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,float) in A and method m1(Object,int) in A match''}. 
+From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hi'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the Java compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,float) in A and method m1(Object,int) in A match''}. 
 
 \begin{figure}[th]
 \centering
@@ -188,7 +188,7 @@ Hence, it is essential to pre-check that the non-duplicate methods on RmR does n
 
 If a duplicate method exists in both parent and child class, Java does not allow these duplicate methods to have different return types.
 
-In Fig. \ref{fig:RmR2} (b), when we apply RmR from B.m2() to B.m1(), compiler produces an error \textsl{`` m1() in B cannot override m1() in A as return type int is not compatible with void''}. This is because the duplicate method m1 have different return types which is not allowed. 
+In Fig. \ref{fig:RmR2} (b), when we apply RmR from B.m2() to B.m1(), the Java compiler produces an error \textsl{`` m1() in B cannot override m1() in A as return type int is not compatible with void''}. This is because the duplicate method m1 have different return types which is not allowed. 
 
 \begin{figure}[th]
 \centering
@@ -243,7 +243,7 @@ The use of access modifiers helps with visible duplicate methods, however there 
 \end{center}
 
 
-As shown in \ref{fig:RmR3}(b), the package-public visibility gets reduced to private for duplicate methods m1() and compiler produces an error \textsl{``m1() in B cannot override m1() in A as attempting to assign weaker access privileges; was package''}. 
+As shown in \ref{fig:RmR3}(b), the package-public visibility gets reduced to private for duplicate methods m1() and Java compiler produces an error \textsl{``m1() in B cannot override m1() in A as attempting to assign weaker access privileges; was package''}. 
 
 \begin{figure}[th]
 \centering
