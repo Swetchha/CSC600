@@ -30,7 +30,7 @@ public class A {
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+public class A {
 
     void m1(int num) {
         int num = 1; 
@@ -61,7 +61,7 @@ public class A {
 \hfill
 \begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+public class A {
 
     void m1(int num) {
         int y = 1; 
@@ -126,10 +126,10 @@ public class B {
 \end{figure}
 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, the class B has field variable `i' with value 2 and a method (display()). In a method there is local variable `j' with value 1. After RvR from `j' to `i' , when we access the variable in the method, the local variable value will be printed shadowing the field variable.
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, when we access the variable in the method, the local variable value will be printed shadowing the field variable.
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_4}, the field variable  in parent class B has variable `i' with value 1 and child class C has a variable `k' with value 3, local variable in method `m1' of class B has the  variable name as `j' with value 2.  Aft RvR from j to i and k to i ,when we try to access the variable `i' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
+For Example, from Fig. \ref{figure:precond5_4}, after RvR from j to i and k to i ,when we try to access the variable `i' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
 
 
 \begin{figure}[th]
