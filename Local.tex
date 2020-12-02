@@ -78,6 +78,9 @@ public class A {
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
+
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, when we access the variable in the method, the local variable value will be printed shadowing the field variable.
+
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.8\linewidth}
@@ -126,11 +129,9 @@ public class B {
 \end{figure}
 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, when we access the variable in the method, the local variable value will be printed shadowing the field variable.
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_4}, after RvR from j to i and k to i ,when we try to access the variable `i' in methods through Class B and C, the respective local variable will be printed shadowing the field variable of its parent class.
-
+For Example, from Fig. \ref{figure:precond5_4}, after RvR from j to i, when we try to access the variable `i'  through Class B, the respective local variable will be printed shadowing the field variable of its parent class.
 
 \begin{figure}[th]
 \centering
@@ -177,7 +178,7 @@ class B extends A {
 \end{lstlisting}
 \centering(b) After 
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variables j to i}}
+\caption{\textbf{Rename Refactoring Variable j to i}}
 \label{figure:precond5_4}
 \end{figure}
 
