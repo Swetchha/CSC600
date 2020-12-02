@@ -2,7 +2,7 @@
 
 If a class is imported from different package, we have to pre-check that the new name of the target class is not duplicate with the imported class after rename refactoring. 
 
-In Fig. \ref{figure:fig2}(a), we see that class B cannot be renamed to A as mentioned in section \ref{sec:precon1}. Furthermore, in Fig. \ref{figure:fig2}(b), when we apply RcR from \emph{B to C}, Java compiler produces an error \textit{``C is already defined in this compilation unit''}. This is because the compiler cannot distinguish between the \emph{imported class C} of package $p$ and the \emph{existing class C} of package $q$. 
+In Fig. \ref{figure:fig2}(a), we see that class B cannot be renamed to A as mentioned in section \ref{sec:precon1}. Furthermore, in Fig. \ref{figure:fig2}(b), when we apply RcR from \emph{B to C}, Java compiler produces an error \textit{``C is already defined in this compilation unit''}. This is because the Java compiler cannot distinguish between the \emph{imported class C} of package $p$ and the \emph{existing class C} of package $q$. 
 
 \begin{figure}[th]
 \centering
