@@ -79,46 +79,46 @@ public class A {
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, when we access the variable in the method, the local variable value is printed shadowing the field variable.
+Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, after RvR from $y$ to $x$, the output gets changed from `0' to `1'. This is because when we access the variable in the method, the local variable value is printed shadowing the field variable.
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+class A{
 
-    public int i = 2;
-    
-    public void display() {
-      int j = 1;
-      System.out.print(j); 		
+   int x = 0;
+	
+   A(int y){
+	   
+      // Output: 0
+      System.out.print(x);
    }
-
-    public static void main(String args[]) {
-    
-      B b = new B();
-      b.display();  //Output: 1
+	
+   void main(String[] args){
+	
+      A a = new A(1);
    }
 }
 \end{lstlisting}
 \centering(a) Before 
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.8\linewidth}
+\begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class B {
+class A{
 
-    public int i = 2;
-    
-    public void display() {
-      int i = 1;
-      System.out.print(i); 		
+   int x = 0;
+	
+   A(int x){
+	   
+      // Output: 1
+      System.out.print(x);
    }
-
-    public static void main(String args[]) {
-    
-      B b = new B();
-      b.display();  //Output: 1
+	
+   void main(String[] args){
+	
+      A a = new A(1);
    }
 }
 \end{lstlisting}
@@ -131,7 +131,7 @@ public class B {
 
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_4}, after RvR from j to i, the output gets changed from `1' to `2'. This is because when we access the variable `i' through Class B, the respective local variable is printed shadowing the field variable of its parent class.
+For Example, from Fig. \ref{figure:precond5_4}, after RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
 
 \begin{figure}[th]
 \centering
