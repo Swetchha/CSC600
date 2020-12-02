@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  2 DEC 2020 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  2 DEC 2020 14:31
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -600,31 +600,16 @@ Overfull \hbox (3.36093pt too wide) in paragraph at lines 115--116
  []
 
 
-Overfull \hbox (0.84232pt too wide) in paragraph at lines 141--143
+Overfull \hbox (0.84232pt too wide) in paragraph at lines 141--142
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (0.84232pt too wide) in paragraph at lines 163--165
+Overfull \hbox (0.84232pt too wide) in paragraph at lines 163--164
 [][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (3.36093pt too wide) in paragraph at lines 225--226
-[][][][][][][][][][][][][][][] 
- []
-
-[3]
-Overfull \hbox (3.36093pt too wide) in paragraph at lines 261--262
-[][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (3.36093pt too wide) in paragraph at lines 280--281
-[][][][][][][][][][][][][][][] 
- []
-
-) (Field.tex [4]) (Local.tex [5]
+[3]) (Field.tex [4]) (Local.tex [5]
 Overfull \hbox (3.36093pt too wide) in paragraph at lines 141--143
 [][][][][][][][][][][][] 
  []
@@ -662,9 +647,9 @@ Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
- 12405 strings out of 480790
- 188442 string characters out of 2895894
- 741598 words of memory out of 3000000
+ 12417 strings out of 480790
+ 188634 string characters out of 2895894
+ 755612 words of memory out of 3000000
  27598 multiletter control sequences out of 15000+200000
  649599 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -677,9 +662,9 @@ ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTe
 sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/M
 iKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on CSC600_paper.pdf (6 pages, 233735 bytes).
+Output written on CSC600_paper.pdf (6 pages, 236363 bytes).
 PDF statistics:
- 846 PDF objects out of 1000 (max. 8388607)
- 571 named destinations out of 1000 (max. 500000)
+ 864 PDF objects out of 1000 (max. 8388607)
+ 583 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

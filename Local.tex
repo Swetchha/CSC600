@@ -9,7 +9,7 @@ Rename Local Variable Refactoring (RvR) changes the name of the local variable a
 
 \subsection{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}
  
-From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable `x' to `z' , the Java compiler produces the error as ``variable z is already defined in method m1(int)''. Similarly we cannot run RvR on  `y'  to `z' or `x'  to `y' . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
+From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable $x$ to $z$ , the Java compiler produces the error as \textit{``variable z is already defined in method m1(int)''}. Similarly we cannot run RvR on $y$ to $z$ or $x$  to $y$ . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
 
 Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
 
