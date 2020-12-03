@@ -43,10 +43,12 @@
 
 \maketitle
 
+\begin{abstract}
+In computer programming and software design, \emph{refactoring} is the process of restructuring existing code by changing the factoring without changing its external behavior. Refactoring is intended to improve the design, structure, and implementation of the software, while preserving its functionality. In simple words, refactoring is a \emph{behavior preserving} code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - \emph{precondition checks and code changes}. In this paper, we explain about the rename refactoring and the preconditions in detail for each type of rename refactorings.
+\end{abstract}
+
 \section{\textbf{Introduction}}
 \lettrine{R}{efactoring} is a controlled technique for improving the design of an existing code base. Its essence is applying a series of small behavior-preserving transformations, each of which ``too small to be worth doing''. However the cumulative effect of each of these transformations is quite significant. By doing them in small steps we reduce the risk of introducing errors. We also avoid having the system broken while carrying out the restructuring - which allows us to gradually refactor a system over an extended period of time.~\cite{Fowler}
-
-In simple words, refactoring is a behavior preserving code transformation technique, for example- rename, move, extract etc. Refactoring rely on two important factors - precondition checks and code changes. In this paper, we explain about the rename refactoring and the preconditions in detail for each type of rename refactorings. 
 
 The idea behind refactoring were introduced over decades ago, but scripting of refactorings is poorly suppported by current IDEs tools. Today’s IDEs lack fine-grained primitive refactorings including restrictive/imprecise preconditions and inconsistent code transformations. There are further more challenges for executing refactoring as it is error-prone, timeconsuming and laborious work. Scripting refactoring with current IDEs are too slow because precondition checks and AST operation takes largest time which makes scripting refactorings impractical. Therefore, we need tools that automate refactorings scripts with precise preconditions, high speed and reliability and which we may reuse frequently. 
 
@@ -82,6 +84,9 @@ Rename Class Refactoring (RcR) changes the name of the class and all references 
 \input{Local}
 
 \input{Package}
+
+\section{\textbf{Conclusion}}
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
