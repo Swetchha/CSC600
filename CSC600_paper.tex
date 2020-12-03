@@ -86,7 +86,13 @@ Rename Class Refactoring (RcR) changes the name of the class and all references 
 \input{Package}
 
 \section{\textbf{Conclusion}}
+Refactoring is about improving the design of existing code. It is the process of simplifying the design in such a way that it does not alter the external behavior of the code, yet improves its internal structure. The main goal of refactoring is to have reduced complexity, improved performance and code readability, while preserving its functionality. Refactoring rely on two important factors -  \emph{precondition checks and code changes}.
 
+Though refactoring was introduced decades ago, there is no standard preconditions set for all the IDEs. All IDEs such as Eclipse, IntelliJ etc follow imprecise preconditions and inconsistent code transformations which fails to preserve the behavior of the code. There are many challenges for executing refactoring as it is prone to error and time-consuming. 
+
+With the objective of simplifying development of all refactoring tools, refactoring functionality of different IDEs has been examined in order to find opportunities to simplify the design of the existing code. This document explains the preconditions about rename refactoring of Class, Method, Field, Local Variable and Package in detail with examples which gives a clear picture of the importance of refactoring. 
+
+In the world of Computer programming and software design, refactoring developers are in need of tools which are capable of having automated refactoring scripts with precise preconditions, high speed and reliability, which we may be reused frequently. Therefore, it is concluded that regular updates and documentation of precondition checks will ease the implementation of Refactoring tools for all the IDEs.
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
