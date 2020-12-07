@@ -34,7 +34,7 @@ public class A {
 
     void m1(int z) {
         int z = 1; 
-	int y = 2;
+				int y = 2;
     }
 }
 \end{lstlisting}
@@ -65,7 +65,7 @@ public class A {
 
     void m1(int z) {
         int y = 1; 
-	int y = 2;
+				int y = 2;
     }
 }
 \end{lstlisting}
@@ -89,13 +89,13 @@ class A{
 
    int x = 0;
 	
-   A(int y){
+   A(int y) {
 	   
       // Output: 0
       System.out.print(x);
    }
 	
-   void main(String[] args){
+   void main(String[] args) {
 	
       A a = new A(1);
    }
@@ -116,7 +116,7 @@ class A{
       System.out.print(x);
    }
 	
-   void main(String[] args){
+   void main(String[] args) {
 	
       A a = new A(1);
    }
@@ -129,29 +129,28 @@ class A{
 \end{figure}
 
 
-
 \begin{figure}[th]
 \centering
 \begin{minipage}[t]{0.47\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-    int i = 1;
+   int i = 1;
 
-    void main(String[] args){
+   void main(String[] args) {
 		
-        B b = new B(); 
-    }
+       B b = new B(); 
+   }
 }
 
 class B extends A{
-    B() {
+   B() {
     	
-       int j = 2;
+      int j = 2;
 
-       // Output: 1
-       System.out.print(i); 
-    }
+      // Output: 2
+      System.out.print(i); 
+   }
 }
 \end{lstlisting}
 \centering(b) Before 
@@ -161,22 +160,22 @@ class B extends A{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-    int i = 1;
+   int i = 1;
 
-    void main(String[] args){
+   void main(String[] args) {
 		
-        B b = new B(); 
-    }
+       B b = new B(); 
+   }
 }
 
 class B extends A{
-    B() {
+   B() {
     	
-       int i = 2;
+      int i = 2;
 
-       // Output: 2
-       System.out.print(i); 
-    }
+      // Output: 2
+      System.out.print(i); 
+   }
 }
 \end{lstlisting}
 \centering(b) After 

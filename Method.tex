@@ -35,9 +35,9 @@ From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the Java compiler produc
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m(int a){}
+  void m(int a) {}
 
-  void n(int b){}	
+  void n(int b) {}	
 }
  
 \end{lstlisting}
@@ -48,9 +48,9 @@ class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void n(int a){}
+  void n(int a) {}
 
-  void n(int b){}	
+  void n(int b) {}	
 }
 
 \end{lstlisting}
@@ -92,9 +92,9 @@ class A {
      System.out.print("bye");
   }	
   
-  void main(String[] args){
+  void main(String[] args) {
 	
-     // output: bye
+     // Output: bye
      this.m2(100); 
   }
 }
@@ -115,9 +115,9 @@ class A {
      System.out.print("bye");
   }	
   
-  void main(String[] args){
+  void main(String[] args) {
 	
-     // output: hi
+     // Output: hi
      this.m1(100); 
   }
 }
@@ -130,7 +130,7 @@ class A {
 \end{figure}
 
 \subsubsection {Non-Duplicate methods Ambiguity} 
-From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the output is `hi'. However, when we apply RmR from m2 to m1 as shown in Fig. \ref{fig:RmR5}(b), the Java compiler produces an error \textsl{``reference to m1 is ambiguous as both method m1(String,float) in A and method m1(Object,int) in A match''}. 
+From Fig. \ref{fig:RmR5}(a), methods $m$ and $n$ are non-duplicate methods and the output is `hi'. However, when we apply RmR from n to m as shown in Fig. \ref{fig:RmR5}(b), the Java compiler produces an error \textsl{``reference to m is ambiguous as both method m(String,float) in A and method m(Object,int) in A match''}. 
 
 \begin{figure}[th]
 \centering
@@ -138,18 +138,18 @@ From Fig. \ref{fig:RmR5}(a), methods m1 and m2 are non-duplicate methods and the
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A{
 
-  void m1(String s, float d){
+  void m(String s, float d) {
      System.out.print(s); 
   }
 
-  void m2(Object o, int i){
+  void n(Object o, int i) {
      System.out.print(o);
   }
 
-  void main(String[] args){
+  void main(String[] args) {
 	
-     // output: hi
-     this.m1("hi", 1);
+     // Output: hi
+     this.m("hi", 1);
   }
 }
 \end{lstlisting}
@@ -160,25 +160,25 @@ class A{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A{
 
-  void m1(String s, float d){
+  void m(String s, float d) {
      System.out.print(s); 
   }
 
-  void m1(Object o, int i){
+  void m(Object o, int i) {
      System.out.print(o);
   }
 
-  void main(String[] args){
+  void main(String[] args) {
   
      // Error
-     this.m1("hi", 1);
+     this.m("hi", 1);
   }
 }
 
 \end{lstlisting}
 \centering{(b) After }
 \end{minipage}
-\caption{\textbf{Rename Refactoring Method m2 to m1}}
+\caption{\textbf{Rename Refactoring Method n to m}}
 \label{fig:RmR5}
 \end{figure}
 
@@ -278,7 +278,7 @@ class A {
   }
 }
 
-class B extends A{
+class B extends A {
  
   private void m1() {
     System.out.print("bye");

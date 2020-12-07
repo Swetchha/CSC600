@@ -10,11 +10,11 @@ For example, if we run RcR on the class name from \textsl{A} to \textsl{B} as in
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-class A{}
+class A {}
 	
-class B{}
+class B {}
 
-class C{}
+class C {}
  
 \end{lstlisting}
 \centering{(a) Before}
@@ -24,11 +24,11 @@ class C{}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-class B{}	
+class B {}	
 
-class B{}
+class B {}
 
-class C{}
+class C {}
 
 \end{lstlisting}
 \centering{(b) After}
@@ -49,11 +49,11 @@ Furthermore, the same error occurs in nested classes. The examples below show th
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-public class A{	
+public class A {	
   
-  class M{}
+  class M {}
 	
-  class N{}
+  class N {}
 } 
 \end{lstlisting}
 \centering{(a) Before}
@@ -63,11 +63,11 @@ public class A{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-public class A{	
+public class A {	
     
-  class N{}
+  class N {}
     
-  class N{}
+  class N {}
 } 
 \end{lstlisting}
 \centering{(b) After}
@@ -86,11 +86,11 @@ When we use same name for outer class and inner class, for example, from Fig. \r
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-public class M{	
+public class M {	
   
-  class M{}
+  class M {}
 	
-  class N{}
+  class N {}
 } 
 \end{lstlisting}
 \centering{(a) After Rename Refactoring on Outer Class A to M}
@@ -100,11 +100,11 @@ public class M{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 package p;
 
-public class A{	
+public class A {	
     
-  class A{}
+  class A {}
     
-  class N{}
+  class N {}
 } 
 \end{lstlisting}
 \centering{(b) After Rename Refactoring on Inner Class M to A}
