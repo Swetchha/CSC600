@@ -11,9 +11,9 @@ In Fig. \ref{figure:fig2}(a), we see that class B cannot be renamed to A as ment
 package q;
 import p.C;
 
-class A{}
+class A {}
 
-class B{} 
+class B {} 
 \end{lstlisting}
 \centering(a) Before
 \end{minipage}
@@ -23,9 +23,9 @@ class B{}
 package q;
 import p.C;
 
-class A{}
+class A {}
 
-class C{} 
+class C {} 
 \end{lstlisting}
 \centering(b) After
 \end{minipage}
@@ -45,11 +45,11 @@ From the Fig. \ref{figure:figpc3_1}, any class name and imported class name cann
 package q;
 import p.C;
 
-public class A{}
+public class A {}
 
-class B extends A{}
+class B extends A {}
 
-class D extends B{}
+class D extends B {}
 \end{lstlisting}
 \centering{(a) Before}
 \end{minipage}
@@ -61,11 +61,11 @@ class D extends B{}
 package q;
 import p.C;
 
-public class A{}
+public class A {}
 
-class C extends A{}
+class C extends A {}
 
-class D extends B{}	
+class D extends B {}	
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}

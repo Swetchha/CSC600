@@ -1,7 +1,7 @@
 \section{\textbf{Preconditions of Rename Package Refactoring}}
 Rename Package Refactoring (RpR) changes the name of the package and all references to that package to the new name without changing its behavior. There is one precondition required for RpR.
 
-For Rename Package Refactoring (RpR), we can not use duplicate package name within the same source folder. However, we can run RpR with same package name from different Java folders.
+The target package name cannot be duplicate with any existing package name within the same source folder. However, we can run RpR with same package name from different Java folders.
 
 For example, we assume that there are two packages in one source folder as shown in Fig. \ref{fig:RpR}, we can not run RpR on package q to p since package p is already exist in the same source folder. 
 
@@ -12,17 +12,17 @@ For example, we assume that there are two packages in one source folder as shown
 //A.java
 package p;
 
-class A{}
+class A {}
 	
-class B{}
+class B {}
 
 
 //M.java
 package q;
 
-class M{}	
+class M {}	
 
-class N{}
+class N {}
 \end{lstlisting}
 \centering{(a) Before}
 \end{minipage}
@@ -32,17 +32,17 @@ class N{}
 //A.java
 package p;
 
-class A{}
+class A {}
 	
-class B{}
+class B {}
 
 
 //M.java
 package p;
 
-class M{}	
+class M {}	
 
-class N{}
+class N {}
 
 
 \end{lstlisting}
