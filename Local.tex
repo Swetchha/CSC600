@@ -55,14 +55,15 @@ public class A {
 \end{figure}
 
  
-From Fig. \ref{figure:precond5_1} , we see two examples of duplicate local variable. From Fig.  \ref{figure:precond5_1}(b), when we apply RvR for local variable $x$ to $z$ , the Java compiler produces the error as \textit{``variable z is already defined in method m1(int)''}. Similarly we cannot run RvR on $y$ to $z$ or $x$  to $y$ . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
+From Fig. \ref{figure:precond5_1}(a) , when we apply RvR for local variable $x$ to $z$ as shown in Fig. \ref{figure:precond5_1}(b), the Java compiler produces an error \textit{``variable z is already defined in method m1(int)''}. 
+
+Similarly, when we apply RvR for local variable $x$ to $y$ as shown in Fig. \ref{figure:precond5_1}(c), the Java compiler produces an error \textit{``variable y is already defined in method m1(int)''}. Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
 
 Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
 
 
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
-
 
 Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, after RvR from $y$ to $x$, the output gets changed from `0' to `1'. This is because when we access the variable in the method, the local variable value is printed shadowing the field variable.
 
@@ -170,8 +171,8 @@ class B extends A{
 \end{figure}
 
 
-
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
-For Example, from Fig. \ref{figure:precond5_4}, after RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
+
+For Example, from Fig. \ref{figure:precond5_4}, when we apply RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
 
 Therefore, it is essential to pre-check that local variable must not result in variable shadowing after RvR.
