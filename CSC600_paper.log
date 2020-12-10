@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  7 DEC 2020 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  10 DEC 2020 11:36
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -700,7 +700,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
 Here is how much of TeX's memory you used:
  12422 strings out of 480790
  188673 string characters out of 2895894
- 742964 words of memory out of 3000000
+ 742962 words of memory out of 3000000
  27599 multiletter control sequences out of 15000+200000
  651802 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -713,7 +713,7 @@ ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTe
 sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/swetchha/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pf
 b><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (7 pages, 250103 bytes).
+Output written on CSC600_paper.pdf (7 pages, 250298 bytes).
 PDF statistics:
  878 PDF objects out of 1000 (max. 8388607)
  585 named destinations out of 1000 (max. 500000)
