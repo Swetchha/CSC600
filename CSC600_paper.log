@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  10 DEC 2020 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  10 DEC 2020 12:09
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -704,7 +704,7 @@ Here is how much of TeX's memory you used:
  27599 multiletter control sequences out of 15000+200000
  651802 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,48p,747b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,8n,48p,752b,1380s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/swetchha/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/swetch
@@ -713,7 +713,7 @@ ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTe
 sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/swetchha/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pf
 b><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (7 pages, 250298 bytes).
+Output written on CSC600_paper.pdf (7 pages, 250401 bytes).
 PDF statistics:
  878 PDF objects out of 1000 (max. 8388607)
  585 named destinations out of 1000 (max. 500000)
