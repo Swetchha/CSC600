@@ -8,14 +8,10 @@ Rename Local Variable Refactoring (RvR) changes the name of the local variable a
 \end{enumerate}
 
 \subsection{The renamed local variable cannot be duplicate with any of the existing local variable in a method.}
- 
-From Fig. \ref{figure:precond5_1} and Fig. \ref{figure:precond5_2}, we see two examples of duplicate local variable. In Example 1 when we apply RvR for local variable $x$ to $z$ , the Java compiler produces the error as \textit{``variable z is already defined in method m1(int)''}. Similarly we cannot run RvR on $y$ to $z$ or $x$  to $y$ . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
-
-Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
 
 \begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.4\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
@@ -28,52 +24,41 @@ public class A {
 \centering(a) Before
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.4\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
     void m1(int z) {
         int z = 1; 
-				int y = 2;
+        int y = 2;
     }
 }
 \end{lstlisting}
-\centering(b) After 
+\centering(b) After Rename Refactoring Variable x to z
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variable x to z}}
-\label{figure:precond5_1}
-\end{figure}
 
-\begin{figure}[th]
 \centering
-\begin{minipage}[t]{0.4\linewidth}
-\begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
-public class A {
-
-    void m1(int z) {
-       int x = 1; 
-       int y = 2
-    }
-}
-\end{lstlisting}
-\centering(a) Before 
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.4\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 public class A {
 
     void m1(int z) {
         int y = 1; 
-				int y = 2;
+        int y = 2;
     }
 }
 \end{lstlisting}
-\centering(b) After 
+\centering(c) After Rename Refactoring Variable x to y
 \end{minipage}
-\caption{\textbf{Rename Refactoring Variable x to y}}
-\label{figure:precond5_2}
+\caption{\textbf{Rename Refactoring of local Variables}}
+\label{figure:precond5_1}
 \end{figure}
+
+ 
+From Fig. \ref{figure:precond5_1} , we see two examples of duplicate local variable. From Fig.  \ref{figure:precond5_1}(b), when we apply RvR for local variable $x$ to $z$ , the Java compiler produces the error as \textit{``variable z is already defined in method m1(int)''}. Similarly we cannot run RvR on $y$ to $z$ or $x$  to $y$ . Renaming local variables to existing local variable in a method creates a conflict of duplicity in local variable.
+
+Therefore, it is essential to pre-check that the target name of local variable should not have duplicate name with any of the existing local variable in a method after RvR.
+
 
 \subsection{The renamed local variable must not result in variable shadowing.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
@@ -148,7 +133,7 @@ class B extends A{
     	
       int j = 2;
 
-      // Output: 2
+      // Output: 1
       System.out.print(i); 
    }
 }
