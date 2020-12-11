@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=Method.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=3847
+TopLine=246
+Cursor=7235
 
 [Frame2]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Field.tex
 
 [Frame2_View0,0]
-TopLine=0
-Cursor=1025
+TopLine=233
+Cursor=7029
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=Precon1.tex
 
 [Frame3_View0,0]
-TopLine=75
-Cursor=2781
+TopLine=79
+Cursor=3091
 
 [Frame4]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=Precon3.tex
 
 [Frame4_View0,0]
-TopLine=48
-Cursor=1065
+TopLine=45
+Cursor=1096
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=Local.tex
 
 [Frame5_View0,0]
-TopLine=166
-Cursor=4917
+TopLine=0
+Cursor=441
 
 [Frame6]
 Flags=0
@@ -125,8 +125,8 @@ Class=LaTeXView
 Document=Precon2.tex
 
 [Frame6_View0,0]
-TopLine=65
-Cursor=2093
+TopLine=63
+Cursor=2305
 
 [Frame7]
 Flags=0
@@ -148,5 +148,5 @@ Cursor=891
 
 [SessionInfo]
 FrameCount=8
-ActiveFrame=3
+ActiveFrame=5
 

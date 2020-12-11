@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  11 DEC 2020 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.16)  11 DEC 2020 13:57
 entering extended mode
 **./CSC600_paper.tex
 (CSC600_paper.tex
@@ -687,7 +687,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
 Package rerunfilecheck Info: File `CSC600_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 7D53E8433D9D5D756A031DE9F7988C24;2284.
+(rerunfilecheck)             Checksum: 1AA82BE5EDFA8FD3C5BA740EEA1B3AF6;2301.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
  ) 
 Here is how much of TeX's memory you used:
@@ -706,7 +706,7 @@ ts/type1/urw/courier/ucrro8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTe
 sers/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/swetchha/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pf
 b><C:/Users/swetchha/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC600_paper.pdf (7 pages, 249178 bytes).
+Output written on CSC600_paper.pdf (7 pages, 249219 bytes).
 PDF statistics:
  863 PDF objects out of 1000 (max. 8388607)
  572 named destinations out of 1000 (max. 500000)
