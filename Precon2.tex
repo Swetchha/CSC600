@@ -2,7 +2,7 @@
 
 If a class is imported from different package, we have to pre-check that the new name of the target class is not duplicate with the imported class after rename refactoring. 
 
-In Fig. \ref{figure:fig2}(a), we see that class B cannot be renamed to A as mentioned in section \ref{sec:precon1}. Furthermore, in Fig. \ref{figure:fig2}(b), when we apply RcR from \emph{B to C}, Java compiler produces an error \textit{``C is already defined in this compilation unit''}. This is because the Java compiler cannot distinguish between the \emph{imported class C} of package $p$ and the \emph{existing class C} of package $q$. 
+In Fig. \ref{figure:fig2}(a), we see that class B cannot be renamed to A as mentioned in section \ref{sec:precon1}. Furthermore, in Fig. \ref{figure:fig2}(b), when we apply RcR from \emph{B to C}, the Java compiler produces an error \textit{``C is already defined in this compilation unit''}. This is because the Java compiler cannot distinguish between the \emph{imported class C} of package $p$ and the \emph{existing class C} of package $q$. 
 
 \begin{figure}[th]
 \centering
@@ -34,7 +34,9 @@ class C {}
 \end{figure}
 
 
-From the Fig. \ref{figure:figpc3_1}, any class name and imported class name cannot be duplicate in the same java file. If they have the same class name, Java compiler produces an error \textit{``C is already defined in this compilation unit''}.  
+The same concept is applicable to class hierarchies. Any parent or child class name cannot be duplicate with imported class name within the same Java file. 
+
+As shown in Fig. \ref{figure:figpc3_1}, when we apply RcR on child class $B$ to $C$, the Java compiler produces an error \textit{``C is already defined in this compilation unit''}.  
 
 \begin{figure}[th]
 \centering
@@ -49,7 +51,6 @@ public class A {}
 
 class B extends A {}
 
-class D extends B {}
 \end{lstlisting}
 \centering{(a) Before}
 \end{minipage}
@@ -65,15 +66,12 @@ public class A {}
 
 class C extends A {}
 
-class D extends B {}	
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
 \caption{\textbf{Rename Refactoring Class B to C}}
 \label{figure:figpc3_1}
 \end{figure}
-
-If any Java file includes imported class from another package and the target class is defined in a different Java file, then in that case we can apply RcR on class to the imported class name.
 
 Therefore, it is essential to pre-check that the target class should not have duplicate name with any of imported class within same Java file after RcR.
 

@@ -11,12 +11,12 @@ There are three types of Rename Method Refactorings:
 
 There are certain preconditions required for RmR which are applicable to each type of RmR.
 \begin{enumerate}
-	\item The target method cannot be a duplicate of an existing method after rename.
-	\item A duplicate method in a child class cannot have different return type.
-	\item A duplicate method in a child class cannot reduce visibility.
+	\item The target method cannot be a duplicate with any existing method after rename.
+	\item The duplicate method in a child class cannot have different return type.
+	\item The duplicate method in a child class cannot reduce visibility.
 \end{enumerate}
 
-\subsection {The target method cannot be duplicate of an existing method after rename. }
+\subsection {The target method cannot be duplicate with any existing method after rename. }
 
 If two or more methods have same method signature with
 below conditions, those methods will be called as duplicate
@@ -27,7 +27,7 @@ methods.
 	\item Same parameter types in order
 \end{itemize}
 
-From Fig. \ref{fig:RmR}, when we apply RmR from m to n, the Java compiler produces an error ``\textsl{method n() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to check the target method name can not be the same as the existing method.
+From Fig. \ref{fig:RmR}, when we apply RmR from $n$ to $m$, the Java compiler produces an error ``\textsl{method m() is already defined in class A}''. This is because another duplicate method already exists in the class. Hence, we have to pre-check that the target method name can not be the same as any of the existing method.
 
 \begin{figure}[th]
 \centering
@@ -48,15 +48,15 @@ class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void n(int a) {}
+  void m(int a) {}
 
-  void n(int b) {}	
+  void m(int b) {}	
 }
 
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
-\caption{\textbf{Rename Refactoring Method m to n}}
+\caption{\textbf{Rename Refactoring Method n to m}}
 \label{fig:RmR}
 \end{figure}
 
@@ -64,19 +64,19 @@ To further define the duplicate methods, some of the use-cases are as follows:
 
 \subsubsection {Duplicate Methods with convertible Input parameters}
 
-From Fig. \ref{fig:RmR4}, method m1 has input parameter type as `int' and m2 has input parameter type as `double'. When we call method m2 with int data type as the parameter, int automatically and implicitly type-casted by Java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
+From Fig. \ref{fig:RmR4}, method $m$ has input parameter type as `int' and $n$ has input parameter type as `double'. When we call method $n$ with int data type as the parameter, int automatically and implicitly type-casted by Java compiler into double and outputs `bye' as shown in Fig. \ref{fig:RmR4}(a). 
 
-When we apply RmR from m2 to m1 and call method m1 by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the original output has changed even with pre-checking condition for duplicate method. 	
+When we apply RmR from $n$ to $m$ and call method $m$ by passing `int' as input parameter then the output is `hello' as shown in Fig. \ref{fig:RmR4}(b). Here, it is clearly evident that after RmR, the original output has changed even with pre-checking condition for duplicate method. 	
 This implies that the definition for duplicate method is not enough to rely on and we need to revise duplicate methods to prevent these ambiguity.
 
-Below are primitive type coercions (i.e., implicit type conversions).  Java allows to convert primitive types without losing information about a numeric value. 
+Below are primitive type coercions (i.e., implicit type conversions). Java allows to convert primitive types without losing information about a numeric value. 
 \textbf{
 \begin{center}
 byte < short < int < float < double
 \end{center}
 }
 
-When the duplicate methods have the larger type size and smaller type is passed then it can be converted to larger type size. The revised definition is that the duplicate methods can have the different data type but the property of widening or automatic type conversion has to be taken care of.
+When the duplicate methods have the larger type size and smaller type is passed then it can be converted to larger type size. Therefore, the revised definition is that the duplicate methods can have the different data type but the property of widening or automatic type conversion has to be taken care of.
 
 \begin{figure}[th]
 \centering
@@ -84,18 +84,18 @@ When the duplicate methods have the larger type size and smaller type is passed 
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1(int i) {	
+  void m(int i) {	
     System.out.print("hi");
   }
 
-  void m2(double j) {	
+  void n(double j) {	
      System.out.print("bye");
   }	
   
   void main(String[] args) {
 	
      // Output: bye
-     this.m2(100); 
+     this.n(100); 
   }
 }
  
@@ -107,25 +107,25 @@ class A {
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1(int i) {	
+  void m(int i) {	
     System.out.print("hi");
   }
 
-  void m1(double j) {	
+  void m(double j) {	
      System.out.print("bye");
   }	
   
   void main(String[] args) {
 	
      // Output: hi
-     this.m1(100); 
+     this.m(100); 
   }
 }
 
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
-\caption{\textbf{Rename Refactoring Method m2 to m1}}
+\caption{\textbf{Rename Refactoring Method n to m}}
 \label{fig:RmR4}
 \end{figure}
 
@@ -184,11 +184,11 @@ class A{
 
 Hence, it is essential to pre-check that the non-duplicate methods on RmR does not result in argument ambiguity.
 
-\subsection{A duplicate method in a child class cannot have different return type.}
+\subsection{The duplicate method in a child class cannot have different return type.}
 
 If a duplicate method exists in both parent and child class, Java does not allow these duplicate methods to have different return types.
 
-From Fig. \ref{fig:RmR2}(a), when we apply RmR from B.m2() to B.m1() as shown in Fig. \ref{fig:RmR2}(b), the Java compiler produces an error \textsl{`` m1() in B cannot override m1() in A as return type int is not compatible with void''}. This is because the duplicate method m1 have different return types which is not allowed. 
+From Fig. \ref{fig:RmR2}(a), when we apply RmR from $n$ to $m$ as shown in Fig. \ref{fig:RmR2}(b), the Java compiler produces an error \textsl{`` m() in B cannot override m() in A as return type int is not compatible with void''}. This is because the duplicate method $m$ has different return types which is not allowed. 
 
 \begin{figure}[th]
 \centering
@@ -196,14 +196,14 @@ From Fig. \ref{fig:RmR2}(a), when we apply RmR from B.m2() to B.m1() as shown in
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1() {
+  void m() {
     System.out.print("hi");
   }
 }
 
 class B extends A{
  
-  int m2() {
+  int n() {
     System.out.print("bye");
   }	
 }
@@ -216,14 +216,14 @@ class B extends A{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1() {
+  void m() {
     System.out.print("hi");
   }
 }
 
 class B extends A{
  
-  int m1() {
+  int m() {
     System.out.print("bye");
   }	
 }
@@ -231,11 +231,11 @@ class B extends A{
 \end{lstlisting}
 \centering{(b) After}
 \end{minipage}
-\caption{\textbf{Rename Refactoring Method m2 to m1}}
+\caption{\textbf{Rename Refactoring Method n to m}}
 \label{fig:RmR2}
 \end{figure}
 
-\subsection{A duplicate method in a child class cannot reduce visibility.}
+\subsection{The duplicate method in a child class cannot reduce visibility.}
 
 The use of access modifiers helps with visible duplicate methods, however there is a proper hierarchy for access modifiers to be followed for duplicate methods.
 
@@ -245,7 +245,7 @@ The use of access modifiers helps with visible duplicate methods, however there 
 \end{center}
 
 
-From Fig. \ref{fig:RmR3}(a), when we apply RmR from B.m2() to B.m1(), the package-public visibility gets reduced to private for duplicate methods m1() as shown in \ref{fig:RmR3}(b) and Java compiler produces an error \textsl{``m1() in B cannot override m1() in A as attempting to assign weaker access privileges; was package''}. 
+From Fig. \ref{fig:RmR3}(a), when we apply RmR from $n$ to $m$, the package-public visibility gets reduced to private for duplicate methods m() as shown in Fig. \ref{fig:RmR3}(b) and Java compiler produces an error \textsl{``m() in B cannot override m() in A as attempting to assign weaker access privileges; was package''}. This is because Java does not allow visibility reduction for any method. 
 
 \begin{figure}[th]
 \centering
@@ -253,14 +253,14 @@ From Fig. \ref{fig:RmR3}(a), when we apply RmR from B.m2() to B.m1(), the packag
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1() {
+  void m() {
     System.out.print("hi");
   }
 }
 
 class B extends A{
 
-  private void m2() {
+  private void n() {
     System.out.print("bye");
   }	
 }
@@ -273,14 +273,14 @@ class B extends A{
 \begin{lstlisting}[language=java, basicstyle=\scriptsize\ttfamily,frame=single]
 class A {
 
-  void m1() {
+  void m() {
     System.out.print("hi");
   }
 }
 
 class B extends A {
  
-  private void m1() {
+  private void m() {
     System.out.print("bye");
   }	
 }
@@ -288,8 +288,9 @@ class B extends A {
 \end{lstlisting}
 \centering{(b) After }
 \end{minipage}
-\caption{\textbf{Rename Refactoring Method m2 to m1}}
+\caption{\textbf{Rename Refactoring Method n to m}}
 \label{fig:RmR3}
 \end{figure}
 
 Therefore, it is essential to pre-check that new name of method does not result in visibility reduction. 
+
