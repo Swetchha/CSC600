@@ -3,7 +3,7 @@ Rename Package Refactoring (RpR) changes the name of the package and all referen
 
 The target package name cannot be duplicate with any existing package name within the same source folder. However, we can run RpR with same package name from different Java folders.
 
-For example, we assume that there are two packages in one source folder as shown in Fig. \ref{fig:RpR}. When we apply RpR from $q$ to $p$, the Java compiler produces an error ``Package already exists''. This is because a package p already exist in the same source folder. 
+From Fig. \ref{fig:RpR}(a), there are two packages in one source folder. When we apply RpR from $q$ to $p$ as shown in Fig. \ref{fig:RpR}(b), the Java compiler produces an error ``Package already exists''. This is because a package p already exist in the same source folder. 
 
 \begin{figure}[th]
 \centering
@@ -51,3 +51,5 @@ class N {}
 \caption{\textbf{Rename Refactoring Package q to p}}
 \label{fig:RpR}
 \end{figure}
+
+Therefore, it is essential to pre-check that the new name of package is not duplicate with any existing package name within same folder.
