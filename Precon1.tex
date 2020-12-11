@@ -2,7 +2,7 @@
 
 When we rename a class with any existing class name, the Java compiler produces error message about duplicate class name. The classes will be conflicted if we run RcR on the target class using the name of an existing class in the same package. So, we can not have duplicate class names in the same package. 
 
-For example, if we run RcR on the class name from \textsl{A} to \textsl{B} as in Fig. \ref{fig:afterrr}, then the Java compiler produces an error message: \textit{``duplicate class: p.B"}.
+For example, when we run RcR on the class name from \textsl{A} to \textsl{B} as shown in Fig. \ref{fig:afterrr}, the Java compiler produces an error message: \textit{``duplicate class: p.B"}.
 
 \begin{figure}[th]
 \centering
@@ -41,7 +41,7 @@ class C {}
 Furthermore, the same error occurs in nested classes. The examples below show that for RcR we can not use the same name either as inner or as outer class for nested classes.
 
 
-\textbf{Example 1:} In order to apply RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. As shown in Fig. \ref{figure:nestedclass1}, when we run RcR on the inner class from M to N, the Java compiler produces an error \textit{``class A.N is already defined in class A''}. 
+\textbf{Example 1:} In order to apply RcR for inner class, we should pre-check that we do not use the same name as any of other inner class name. From Fig. \ref{figure:nestedclass1}(a), when we run RcR on the inner class from M to N as shown in Fig. \ref{figure:nestedclass1}(b), the Java compiler produces an error \textit{``class A.N is already defined in class A''}. 
 
 \begin{figure}[th]
 \centering
@@ -78,7 +78,8 @@ public class A {
 
 
 \textbf{Example 2:} In order to apply RcR for outer class, we should pre-check that we do not use the same name as any of the inner class name and vice-versa. 
-When we use same name for outer class and inner class, for example, from Fig. \ref{figure:nestedclass1} (a) to Fig. \ref{figure:nestedclass2},  the Java compiler produces an error \textit{``class M is already defined in package p''} for Fig. \ref{figure:nestedclass2} (a) and \textit{``class A is already defined in package p''} for Fig. \ref{figure:nestedclass2} (b).
+
+From Fig. \ref{figure:nestedclass1}(a), when we use same name for outer class and inner class as shown in Fig. \ref{figure:nestedclass2}(a) and Fig. \ref{figure:nestedclass2}(b), the Java compiler produces errors \textit{``class M is already defined in package p''} and \textit{``class A is already defined in package p''} respectively. 
 
 \begin{figure}[th]
 \centering
@@ -109,7 +110,7 @@ public class A {
 \end{lstlisting}
 \centering{(b) After Rename Refactoring on Inner Class M to A}
 \end{minipage}
-\caption{\textbf{Nested Class after Rename Class Refactoring}}
+\caption{\textbf{Rename Class Refactoring on Nested Class}}
 \label{figure:nestedclass2}
 \end{figure}
 
