@@ -65,7 +65,9 @@ Therefore, it is essential to pre-check that the target name of local variable s
 \subsection{The target local variable must not result in variable shadowing after rename.}
 Shadowing refers to the concept of using two variables with the same name within scopes that overlap. When we do that, the variable with the higher-level scope is hidden because the variable with lower-level scope overrides it. This results in the higher-level variable being ``shadowed''. 
 
-Suppose a local variable has the same name as one of the field variable(instance variable), the local variable shadows the field variable inside the method block. From Fig. \ref{figure:precond5_3}, after RvR from $y$ to $x$, the output gets changed from `0' to `1'. This is because when we access the variable in the method, the local variable value is printed shadowing the field variable.
+So, if a local variable has the same name as any of the field variable, the local variable shadows the field variable inside the method block. 
+
+From Fig. \ref{figure:precond5_3}(a), when we apply RvR from $y$ to $x$ as shown in Fig. \ref{figure:precond5_3}(b), the output gets changed from `0' to `1'. This is because when we access the variable in the method, the local variable value is printed shadowing the field variable.
 
 \begin{figure}[th]
 \centering
@@ -130,8 +132,8 @@ class A {
 }
 
 class B extends A{
-   B() {
-    	
+
+   B() {    	
       int j = 2;
 
       // Output: 1
@@ -155,8 +157,8 @@ class A {
 }
 
 class B extends A{
+
    B() {
-    	
       int i = 2;
 
       // Output: 2
@@ -173,6 +175,6 @@ class B extends A{
 
 Similarly variable shadowing occurs when the same variables are defined in parent and child classes.
 
-For Example, from Fig. \ref{figure:precond5_4}, when we apply RvR from $j$ to $i$, the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
+From Fig. \ref{figure:precond5_4}(a), when we apply RvR from $j$ to $i$ as shown in Fig. \ref{figure:precond5_4}(b), the output gets changed from `1' to `2'. This is because when we access the variable $i$ through Class B, the respective local variable is printed shadowing the field variable of its parent class.
 
 Therefore, it is essential to pre-check that local variable must not result in variable shadowing after RvR.
