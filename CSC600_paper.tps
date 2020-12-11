@@ -35,7 +35,7 @@ Class=LaTeXView
 Document=Method.tex
 
 [Frame1_View0,0]
-TopLine=246
+TopLine=260
 Cursor=7235
 
 [Frame2]
@@ -71,7 +71,7 @@ Class=LaTeXView
 Document=Precon1.tex
 
 [Frame3_View0,0]
-TopLine=79
+TopLine=85
 Cursor=3091
 
 [Frame4]
@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=Precon3.tex
 
 [Frame4_View0,0]
-TopLine=45
+TopLine=46
 Cursor=1096
 
 [Frame5]
